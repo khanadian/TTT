@@ -83,7 +83,7 @@ public class Game
 				
 				if(playerTurn == 1)
 				{
-					removeVoidCombos(winningCombos2, "X"); //error occurs at this line
+					removeVoidCombos(winningCombos2, "X");
 					check = checkEnd(winningCombos2);
 				}
 				else
@@ -94,10 +94,7 @@ public class Game
 				
 				
 				if(check == 0)
-				{
-					playerTurn++;
-					playerTurn = playerTurn % 2; // fancy way of alternating between players
-				}
+					playerTurn = playerTurn ^ 3;
 				else
 					isGameOver = true;
 			}
@@ -145,6 +142,7 @@ public class Game
 		System.out.println(" " + tileList[i].getSymbText() +"|"+ tileList[j].getSymbText() +"|"+  tileList[k].getSymbText());
 	}
 	
+	//string representation of free/empty tiles
 	private String printFree()
 	{
 		boolean comma = false;
@@ -172,7 +170,7 @@ public class Game
 		
 		for (Tile[] combos: array)
 		{
-			if(combos[0].getSymbol() != 2 && (combos[0].getSymbol() == combos[1].getSymbol()) && 
+			if(combos[0].getSymbol() != 0 && (combos[0].getSymbol() == combos[1].getSymbol()) && 
 					combos[1].getSymbol() == combos[2].getSymbol())
 			{
 				return 1;

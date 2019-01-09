@@ -1,3 +1,12 @@
+COMPLETED
+--------------------------------------------------------------------------
+Name: fix numbering bug
+What to do: when player 2 wins, it says number 0
+--------------------------------------------------------------------------
+
+
+
+_____________________________________________________________________________
 USER STORIES
 
 --------------------------------------------------------------------------
@@ -10,11 +19,21 @@ Name: 3x3 array
 What to do: convert the program to make the grid 3x3 instead of taking a single number
 Why: probably more intuitive
 --------------------------------------------------------------------------
-Name: fix numbering bug
-What to do: when player 2 wins, it says number 0
 
---------------------------------------------------------------------------
 Name: number tiles
 What to do: display which number represents which tile
 Why: user doesnt know what the numbers represent
 
+--------------------------------------------------------------------------
+Name: JUnit
+What to do: Add JUnit testing
+Why: to avoid bugs
+
+--------------------------------------------------------------------------
+Name: Custom symbols
+What to do: Allow users to input a character as their symbol
+Why: give users more control
+--------------------------------------------------------------------------
+Name: globals 
+What to do: create global constants like for what is occupying the tile
+Why: to stop confusion and use of arbitrary variables
