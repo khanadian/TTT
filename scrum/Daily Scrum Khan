@@ -3,7 +3,7 @@ SCRUM
 -------
 Day
 -------
-whats done: 
+what's done: 
 what to do:
 obstacles:
 
@@ -11,7 +11,7 @@ obstacles:
 -------
 Day 1
 -------
-whats done: N/A
+what's done: N/A
 what to do: get started
 obstacles: getting started
 
@@ -23,3 +23,9 @@ what's done: game has text visuals
 what to do: add an end state
 obstacles: errors to fix
 
+-------
+Day 3
+-------
+what's done: the game recognizes when its over
+what to do: need to ask if player wants to continue
+obstacles: error checking for input

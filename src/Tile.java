@@ -32,9 +32,7 @@ public class Tile
 	public void setSymbol(int symbol)
 	{
 		this.symbol = symbol;
-		if(symbol == 2)
-			symbText = " ";
-		else if(symbol == 1)
+		if(symbol == 1)
 			symbText = "X";
 		else if(symbol == 0)
 			symbText = "O";

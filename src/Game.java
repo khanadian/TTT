@@ -9,13 +9,8 @@ public class Game
 	private ArrayList<Tile[]> winningCombos1; // used to check for win states for player 1
 	private ArrayList<Tile[]> winningCombos2; // used to check for win states for player 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 	Scanner sc = new Scanner(System.in);
-	private int playerTurn; // indicates which player is playing
-	private boolean play;
-	private boolean isOver;
-	int inp;
-	boolean verified;
-	String input;
-	int check;
+	private boolean keepPlaying;
+	
 	
 	
 	public static void main(String[] args) 
@@ -31,9 +26,15 @@ public class Game
 	private Game()
 	{
 		//setting up
-		play = true;
+		int playerTurn;
+		int check;
+		int inp = 0;
+		String input;
+		boolean verified;
+		boolean isGameOver;
+		keepPlaying = true;
 		
-		while(play)
+		while(keepPlaying)
 		{
 			//starting new game
 			
@@ -43,7 +44,7 @@ public class Game
 			winningCombos1 = setupList();
 			winningCombos2 = setupList();
 			playerTurn = 1;
-			isOver = false;
+			isGameOver = false;
 			
 			
 			
@@ -51,7 +52,7 @@ public class Game
 			for(int i = 1; i < 10; i++)
 				freeTiles.add(Integer.valueOf(i));
 			
-			while(isOver == false)
+			while(isGameOver == false)
 			{
 				verified = false;
 				while(verified == false)
@@ -98,7 +99,7 @@ public class Game
 					playerTurn = playerTurn % 2; // fancy way of alternating between players
 				}
 				else
-					isOver = true;
+					isGameOver = true;
 			}
 			System.out.println("Game Over!");
 			System.out.println("Player "+ playerTurn + " wins!");
