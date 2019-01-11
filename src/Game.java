@@ -92,8 +92,6 @@ public class Game
 				{
 					removeVoidCombos(winningCombos1, "O");
 					check = checkEnd(winningCombos2);
-					
-					printWinningCombos(winningCombos2);
 				}
 				
 				
@@ -209,8 +207,8 @@ public class Game
 		
 		for (Tile[] combos: array)
 		{
-			if((tileList[combos[0].getID()].getSymbText().equals(tileList[combos[1].getID()].getSymbText()) && 
-					tileList[combos[1].getID()].getSymbText().equals(tileList[combos[2].getID()].getSymbText())))
+			if((combos[0].getSymbText().equals(combos[1].getSymbText()) && 
+					combos[2].getSymbText().equals(combos[1].getSymbText())))
 			{
 				return 1;
 			}
@@ -230,18 +228,21 @@ public class Game
 			skip = false;
 			for(int i = 0; i < 3; i++)
 			{
-				if(skip == false && tileList[combo[i].getID()].getSymbText().equals(symb)) // look up the number and its symbol
+				if(skip == false && combo[i].getSymbText().equals(symb)) // look up the number and its symbol
 				{
 					toRemove[counter] = (array.indexOf(combo));
 					skip = true;
+					counter++;
 				}
 			}
 		}
-		for(int i = counter; i > 0; i--)
+		for(int i = counter - 1; i > -1; i--)
+		{
 			array.remove(toRemove[i]);
+		}
 	}
 	
-	// prints the winning combos in a list
+	// lets the user see their winning options
 	private void printWinningCombos(ArrayList<Tile[]> win)
 	{
 		for (Tile[] combo : win)
