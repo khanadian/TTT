@@ -34,13 +34,14 @@ public class Game
 		boolean verified;
 		boolean isGameOver;
 		keepPlaying = true;
+		String[] playerSymbol = new String[] {"ERROR", "X", "O"};
 		
 		while(keepPlaying)
 		{
 			//starting new game
 			
 			for(int i = 1; i < 10; i++)
-				tileList[i] = new Tile(Integer.toString(i));
+				tileList[i] = new Tile(i);
 			
 			winningCombos1 = setupList();
 			winningCombos2 = setupList();
@@ -80,7 +81,7 @@ public class Game
 				
 				//player has chosen their move
 				freeTiles.set(inp-1, 0);
-				tileList[inp].setSymbol(playerTurn);
+				tileList[inp].setSymbText(playerSymbol[playerTurn]);
 				
 				if(playerTurn == 1)
 				{
@@ -91,7 +92,8 @@ public class Game
 				{
 					removeVoidCombos(winningCombos1, "O");
 					check = checkEnd(winningCombos2);
-					System.out.println(Arrays.toString(winningCombos2.toArray()));
+					
+					printWinningCombos(winningCombos2);
 				}
 				
 				
@@ -197,18 +199,18 @@ public class Game
 		return nums;
 	}
 	
-	//checks if game has ended, 1 = win, 2 = draw
+	//checks if game has ended, 1 = win, 2 = draw, 0 = continue
 	private int checkEnd(ArrayList<Tile[]> array)
 	{
-		
+		//printFree().equals("")                                   <- let them play it out
 		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
-		if(printFree().equals(""))
+		if(winningCombos1.isEmpty() && winningCombos2.isEmpty())
 			return 2;
 		
 		for (Tile[] combos: array)
 		{
-			if(combos[0].getSymbol() != 0 && (combos[0].getSymbol() == combos[1].getSymbol()) && 
-					combos[1].getSymbol() == combos[2].getSymbol())
+			if((tileList[combos[0].getID()].getSymbText().equals(tileList[combos[1].getID()].getSymbText()) && 
+					tileList[combos[1].getID()].getSymbText().equals(tileList[combos[2].getID()].getSymbText())))
 			{
 				return 1;
 			}
@@ -220,27 +222,43 @@ public class Game
 	private void removeVoidCombos(ArrayList<Tile[]> array, String symb)
 	{
 		boolean skip;
-		List<Integer> toRemove = new ArrayList<Integer>();
+		int[] toRemove = new int[8];
+		int counter = 0;
 		
-		for (Tile[] combos : array)
+		for (Tile[] combo : array)
 		{
 			skip = false;
 			for(int i = 0; i < 3; i++)
 			{
-				if(combos[i].getSymbText().equals(symb) && skip == false)
+				if(skip == false && tileList[combo[i].getID()].getSymbText().equals(symb)) // look up the number and its symbol
 				{
-					toRemove.add(array.indexOf(combos));
+					toRemove[counter] = (array.indexOf(combo));
 					skip = true;
 				}
 			}
 		}
-		for(Integer i : toRemove) {
-			array.remove(i);
+		for(int i = counter; i > 0; i--)
+			array.remove(toRemove[i]);
+	}
+	
+	// prints the winning combos in a list
+	private void printWinningCombos(ArrayList<Tile[]> win)
+	{
+		for (Tile[] combo : win)
+		{
+			System.out.print("(");
+			for (int i = 0; i < 3; i++)
+			{
+				System.out.print(combo[i]);
+				if (i < 2)
+					System.out.print(", ");
+			}
+			
+			System.out.println(")");
 		}
 	}
 }
 
-// checks if the game has ended. 1 = current player won, 2 = draw, 0 = no ending
 
 
 /*
@@ -277,5 +295,3 @@ public class Game
 --+-+--
  X|O|
   */
-
-//System.out.println("hi");

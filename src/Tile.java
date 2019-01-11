@@ -2,35 +2,33 @@
 public class Tile 
 {
 	private boolean empty;
-	private int symbol; // 0 = empty, 1 = X, 2 = O
 	private String symbText;
+	private int id;
 	
-	public Tile(boolean empty, int symbol, String symbText)
-	{
-		this.symbol = symbol;
-		this.empty = empty;
-		this.symbText = symbText;
-	}
 	
-	public Tile(int symbol, String symbText)
+	public Tile(String symbText)
 	{
-		this.symbol = symbol;
 		this.empty = false;
 		this.symbText = symbText;
+		int id = -1;
 	}
 	
 	public Tile()
 	{
 		this.empty = true;
-		this.symbol = 0;
 		symbText = " ";
 	}
 	
-	public Tile(String symbText)
+	public Tile(int number)
 	{
-		this.symbText = symbText;
+		this.id = number;
+		this.symbText = Integer.toString(number);
 		this.empty = true;
-		this.symbol = 0;
+	}
+	
+	public int getID()
+	{
+		return this.id;
 	}
 	
 	public boolean isEmpty()
@@ -38,21 +36,9 @@ public class Tile
 		return this.empty;
 	}
 	
-	public int getSymbol()
+	public void setSymbText(String symbText)
 	{
-		return symbol;
-	}
-	
-	public void setSymbol(int symbol)
-	{
-		this.symbol = symbol;
-		if(symbol == 1)
-			symbText = "X";
-		else if(symbol == 2)
-			symbText = "O";
-		else
-			symbText = "ERROR";
-		this.empty = false;
+		this.symbText = symbText;
 	}
 	
 	public String getSymbText()
@@ -60,5 +46,9 @@ public class Tile
 		return symbText;
 	}
 	
+	public String toString()
+	{
+		return Integer.toString(id);
+	}
 }
 
