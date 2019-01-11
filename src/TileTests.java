@@ -7,7 +7,7 @@ public class TileTests {
 	
 	
 	@Test
-	public void testGetters() {
+	public void test() {
 		
 		Tile[] tileList = new Tile[10];
 		
@@ -17,12 +17,9 @@ public class TileTests {
 		}
 		
 		
+		
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testSetters() {
-		fail("Not yet implemented");
-	}
 
 }

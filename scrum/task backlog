@@ -37,3 +37,9 @@ Why: give users more control
 Name: globals 
 What to do: create global constants like for what is occupying the tile
 Why: to stop confusion and use of arbitrary variables
+
+--------------------------------------------------------------------------
+Name: Bots 
+What to do: add AI opponent
+Why: for people with no friends
+

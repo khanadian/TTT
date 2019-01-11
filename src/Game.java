@@ -100,6 +100,34 @@ public class Game
 			}
 			System.out.println("Game Over!");
 			System.out.println("Player "+ playerTurn + " wins!");
+			
+			verified = false;
+			while(verified == false)
+			{
+				System.out.println("Want to keep playing? (y/n)");
+				
+				try 
+				{
+					input = sc.next();
+					
+					if (input.equals("y"))
+					{
+						System.out.println("Yay!");
+						verified = true;
+					}
+					else if (input.equals("n"))
+					{
+						System.out.println("aw...");
+						verified = true;
+						keepPlaying = false;
+					}
+					else	
+						System.out.println("thats not a proper input");
+					
+				}
+				catch(Exception e){System.out.println("thats not a proper input");}
+			}
+			
 		}
 		
 	}

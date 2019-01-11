@@ -29,3 +29,10 @@ Day 3
 what's done: the game recognizes when its over
 what to do: need to ask if player wants to continue
 obstacles: error checking for input
+
+-------
+Day 4
+-------
+what's done: code clean up
+what to do: ask whether to continue or not
+obstacles: error checking
