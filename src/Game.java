@@ -28,7 +28,7 @@ public class Game
 	{
 		//setting up
 		int playerTurn;
-		int check;
+		int check = 0;
 		int inp = 0;
 		String input = "DEFAULT";
 		boolean verified;
@@ -103,7 +103,10 @@ public class Game
 			}
 			displayGrid();
 			System.out.println("Game Over!");
-			System.out.println("Player "+ playerTurn + " wins!");
+			if(check != 2)
+				System.out.println("Player "+ playerTurn + " wins!");
+			else
+				System.out.println("It is a tie!");	
 			
 			verified = false;
 			while(verified == false)
@@ -197,7 +200,9 @@ public class Game
 	//checks if game has ended, 1 = win, 2 = draw
 	private int checkEnd(ArrayList<Tile[]> array)
 	{
-		if(winningCombos1.isEmpty() && winningCombos2.isEmpty())
+		
+		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
+		if(printFree().equals(""))
 			return 2;
 		
 		for (Tile[] combos: array)
@@ -211,19 +216,21 @@ public class Game
 		return 0;
 	}
 	
+	//removes combos that can no longer be made
 	private void removeVoidCombos(ArrayList<Tile[]> array, String symb)
 	{
-		boolean skip = true;
+		boolean skip;
 		List<Integer> toRemove = new ArrayList<Integer>();
+		
 		for (Tile[] combos : array)
 		{
-			skip = true;
+			skip = false;
 			for(int i = 0; i < 3; i++)
 			{
-				if(combos[i].getSymbText().equals(symb) && skip == true)
+				if(combos[i].getSymbText().equals(symb) && skip == false)
 				{
 					toRemove.add(array.indexOf(combos));
-					skip = false;
+					skip = true;
 				}
 			}
 		}
