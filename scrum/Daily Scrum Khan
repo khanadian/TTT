@@ -36,3 +36,10 @@ Day 4
 what's done: code clean up
 what to do: ask whether to continue or not
 obstacles: error checking
+
+-------
+Day
+-------
+what's done: game runs perfectly fine 
+what to do: Add numbers to tiles, JUnit testing
+obstacles: Testing some of the methods in 'Game'

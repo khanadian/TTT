@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class Game
 		int playerTurn;
 		int check;
 		int inp = 0;
-		String input;
+		String input = "DEFAULT";
 		boolean verified;
 		boolean isGameOver;
 		keepPlaying = true;
@@ -39,7 +40,7 @@ public class Game
 			//starting new game
 			
 			for(int i = 1; i < 10; i++)
-				tileList[i] = new Tile();
+				tileList[i] = new Tile(Integer.toString(i));
 			
 			winningCombos1 = setupList();
 			winningCombos2 = setupList();
@@ -66,7 +67,7 @@ public class Game
 						inp = Integer.parseInt(input);
 						
 						if (inp < 1 || inp > 9)
-							System.out.println("thats not between 1-9");
+							System.out.println(inp +" is not between 1-9");
 						else if ((tileList[inp].isEmpty()) == false)
 							System.out.println("that tile's already taken");
 						else	
@@ -74,7 +75,7 @@ public class Game
 						
 						
 					}
-					catch(Exception e){System.out.println("thats not a number");}
+					catch(Exception e){System.out.println("\"" + input +"\" is not a number");}
 				}
 				
 				//player has chosen their move
@@ -84,13 +85,15 @@ public class Game
 				if(playerTurn == 1)
 				{
 					removeVoidCombos(winningCombos2, "X");
-					check = checkEnd(winningCombos2);
+					check = checkEnd(winningCombos1);
 				}
 				else
 				{
 					removeVoidCombos(winningCombos1, "O");
-					check = checkEnd(winningCombos1);
+					check = checkEnd(winningCombos2);
+					System.out.println(Arrays.toString(winningCombos2.toArray()));
 				}
+				
 				
 				
 				if(check == 0)
@@ -98,6 +101,7 @@ public class Game
 				else
 					isGameOver = true;
 			}
+			displayGrid();
 			System.out.println("Game Over!");
 			System.out.println("Player "+ playerTurn + " wins!");
 			
@@ -122,7 +126,7 @@ public class Game
 						keepPlaying = false;
 					}
 					else	
-						System.out.println("thats not a proper input");
+						System.out.println("\"" + input +"\" is not a proper input");
 					
 				}
 				catch(Exception e){System.out.println("thats not a proper input");}

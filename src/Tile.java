@@ -12,11 +12,25 @@ public class Tile
 		this.symbText = symbText;
 	}
 	
+	public Tile(int symbol, String symbText)
+	{
+		this.symbol = symbol;
+		this.empty = false;
+		this.symbText = symbText;
+	}
+	
 	public Tile()
 	{
 		this.empty = true;
 		this.symbol = 0;
 		symbText = " ";
+	}
+	
+	public Tile(String symbText)
+	{
+		this.symbText = symbText;
+		this.empty = true;
+		this.symbol = 0;
 	}
 	
 	public boolean isEmpty()
