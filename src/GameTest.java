@@ -11,8 +11,6 @@ public class GameTest {
 		Tile[] tileList = new Tile[3];
 		ArrayList<Tile[]> combo = new ArrayList<Tile[]>();
 		
-		tileList[0] = new Tile();
-		tileList[1] = new Tile();
 		
 		combo.add(tileList);
 		
