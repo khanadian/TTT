@@ -1,22 +1,15 @@
-
+// a tile in the game of tic tac toe. 9 tiles in a 3x3 fashion make one board
 public class Tile 
 {
 	private boolean empty;
 	private String symbText;
 	private int id;
 	
-	
-	public Tile(String symbText)
+	public Tile(String symbText, int ID)
 	{
 		this.empty = false;
 		this.symbText = symbText;
-		int id = -1;
-	}
-	
-	public Tile()
-	{
-		this.empty = true;
-		symbText = " ";
+		this.id = ID;
 	}
 	
 	public Tile(int number)

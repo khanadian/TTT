@@ -11,13 +11,6 @@ public class TileTests {
 		
 		Tile[] tileList = new Tile[10];
 		
-		for(int i = 1; i < 10; i++)
-		{
-			tileList[i] = new Tile();
-		}
-		
-		
-		
 		fail("Not yet implemented");
 	}
 	

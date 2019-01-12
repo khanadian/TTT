@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
+//game of tic tac toe
 public class Game 
 {
 	private Tile[] tileList = new Tile[10];
@@ -11,8 +10,9 @@ public class Game
 	private ArrayList<Tile[]> winningCombos2; // used to check for win states for player 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 	Scanner sc = new Scanner(System.in);
 	private boolean keepPlaying;
-	
-	
+
+	private String playerOneSymbol = "X";
+	private String playerTwoSymbol = "O";
 	
 	public static void main(String[] args) 
 	{
@@ -22,7 +22,6 @@ public class Game
 				new Game();
 			}});
 	}
-	
 	
 	private Game()
 	{
@@ -34,7 +33,7 @@ public class Game
 		boolean verified;
 		boolean isGameOver;
 		keepPlaying = true;
-		String[] playerSymbol = new String[] {"ERROR", "X", "O"};
+		String[] playerSymbol = new String[] {"ERROR", playerOneSymbol, playerTwoSymbol};
 		
 		System.out.println("Let's play some Tic Tac Toe!");
 		
@@ -85,12 +84,12 @@ public class Game
 				
 				if(playerTurn == 1)
 				{
-					removeVoidCombos(winningCombos2, "X");
+					removeVoidCombos(winningCombos2, playerOneSymbol);
 					check = checkEnd(winningCombos1);
 				}
 				else
 				{
-					removeVoidCombos(winningCombos1, "O");
+					removeVoidCombos(winningCombos1, playerTwoSymbol);
 					check = checkEnd(winningCombos2);
 				}
 				
@@ -255,6 +254,22 @@ public class Game
 			System.out.println(")");
 		}
 	}
+	
+	public ArrayList<Tile[]> getWinningCombos(int player)
+	{
+		if(player == 1)
+			return winningCombos1;
+		return winningCombos2;
+	}
+	
+	public String getSymbol(int player)
+	{
+		if (player == 1)
+			return playerOneSymbol;
+		return playerTwoSymbol;
+	}
+	
+	
 }
 
 
