@@ -177,9 +177,9 @@ public class Game
 		boolean comma = false;
 		String nums = "";
 		
-		for (int tile = 0; tile < 9; tile++)
+		for (int tile = 1; tile < 10; tile++)
 		{
-			if(freeTiles[tile] != 0)
+			if(freeTiles[tile-1] != 0)
 			{
 				if(comma)
 					nums = nums + ", ";
