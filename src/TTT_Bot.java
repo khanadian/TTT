@@ -58,6 +58,9 @@ class TTT_Bot {
 				}
 			}
 			
+			// put one down somewhere
+			
+			
 			//return;
 		}
 		else if(difficulty == 1)
@@ -70,10 +73,10 @@ class TTT_Bot {
 		}
 		else 
 		{
-			return 10;
+			return 10; // invalid difficulty value
 		}
 		
-		return 0;
+		return -1;
 	}
 
 // find the best combo

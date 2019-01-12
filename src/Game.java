@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Game 
 {
 	private Tile[] tileList = new Tile[10];
-	private ArrayList<Integer> freeTiles;
+	private int[] freeTiles;
 	private ArrayList<Tile[]> winningCombos1; // used to check for win states for player 1
 	private ArrayList<Tile[]> winningCombos2; // used to check for win states for player 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 	Scanner sc = new Scanner(System.in);
@@ -49,9 +49,7 @@ public class Game
 			playerTurn = 1;
 			isGameOver = false;
 			
-			freeTiles = new ArrayList<Integer>();
-			for(int i = 1; i < 10; i++)
-				freeTiles.add(Integer.valueOf(i));
+			freeTiles = new int[] {1,2,3,4,5,6,7,8,9};
 			
 			while(isGameOver == false)
 			{
@@ -79,7 +77,7 @@ public class Game
 				}
 				
 				//player has chosen their move
-				freeTiles.set(inp-1, 0);
+				freeTiles[inp-1] = 0;
 				tileList[inp].setSymbText(playerSymbol[playerTurn]);
 				
 				if(playerTurn == 1)
@@ -179,9 +177,9 @@ public class Game
 		boolean comma = false;
 		String nums = "";
 		
-		for (int tile : freeTiles)
+		for (int tile = 0; tile < 9; tile++)
 		{
-			if(tile != 0)
+			if(freeTiles[tile] != 0)
 			{
 				if(comma)
 					nums = nums + ", ";
@@ -269,7 +267,10 @@ public class Game
 		return playerTwoSymbol;
 	}
 	
-	
+	public int[] getFreeTiles()
+	{
+		return freeTiles;
+	}
 }
 
 
