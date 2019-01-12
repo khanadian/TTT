@@ -16,7 +16,7 @@ public class GameTest {
 		
 		combo.add(tileList);
 		
-		assertTrue(1 == 1);
+		assertTrue(tileList[0].getSymbText().equals(" "));
 	}
 
 }

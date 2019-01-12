@@ -36,6 +36,8 @@ public class Game
 		keepPlaying = true;
 		String[] playerSymbol = new String[] {"ERROR", "X", "O"};
 		
+		System.out.println("Let's play some Tic Tac Toe!");
+		
 		while(keepPlaying)
 		{
 			//starting new game
@@ -47,8 +49,6 @@ public class Game
 			winningCombos2 = setupList();
 			playerTurn = 1;
 			isGameOver = false;
-			
-			
 			
 			freeTiles = new ArrayList<Integer>();
 			for(int i = 1; i < 10; i++)
@@ -97,7 +97,7 @@ public class Game
 				
 				
 				if(check == 0)
-					playerTurn = playerTurn ^ 3;
+					playerTurn = playerTurn ^ 3; //XOR, switches bits from 01 to 10, and vice versa
 				else
 					isGameOver = true;
 			}
@@ -139,10 +139,7 @@ public class Game
 		
 	}
 	
-	/*
-	 * sets up the winning combos for a player
-	 * input: list of winning combinations
-	 */
+	//sets up the winning combos for a player
 	private ArrayList<Tile[]> setupList()
 	{
 		ArrayList<Tile[]> combos = new ArrayList<Tile[]>();

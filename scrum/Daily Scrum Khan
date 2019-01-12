@@ -49,4 +49,4 @@ Day 6
 -------
 what's done: Tile system works as intended now
 what to do: more JUnit testing
-obstacles: i dont like JUnit testing
+obstacles: you cant test private methods, also most methods require the game to have been initialized
