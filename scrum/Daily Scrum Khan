@@ -38,8 +38,15 @@ what to do: ask whether to continue or not
 obstacles: error checking
 
 -------
-Day
+Day 5
 -------
 what's done: game runs perfectly fine 
 what to do: Add numbers to tiles, JUnit testing
 obstacles: Testing some of the methods in 'Game'
+
+-------
+Day 6
+-------
+what's done: Tile system works as intended now
+what to do: more JUnit testing
+obstacles: i dont like JUnit testing
