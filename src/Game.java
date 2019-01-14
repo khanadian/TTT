@@ -35,6 +35,11 @@ public class Game
 		keepPlaying = true;
 		String[] playerSymbol = new String[] {"ERROR", playerOneSymbol, playerTwoSymbol};
 		
+		TTT_Bot bot;
+		boolean botExists = false;
+		int botTurn = -1;
+		int botDiff = 0;
+		
 		System.out.println("Let's play some Tic Tac Toe!");
 		
 		while(keepPlaying)
@@ -55,32 +60,73 @@ public class Game
 				freeTiles.add(i);
 			}
 			
-			while(isGameOver == false)
+			verified = false;
+			while(verified == false)
 			{
-				verified = false;
-				while(verified == false)
+				System.out.println("Want to fight a bot? (y/n)");
+				try 
 				{
-					displayGrid();
-					System.out.println("Pick a tile ("+ printFree() +")");
+					input = sc.next();
 					
-					try 
+					if (input.equals("y"))
 					{
-						input = sc.next();
-						inp = Integer.parseInt(input);
-						
-						if (inp < 1 || inp > 9)
-							System.out.println(inp +" is not between 1-9");
-						else if ((tileList[inp].isEmpty()) == false)
-							System.out.println("that tile's already taken");
-						else	
-							verified = true;
-						
+						//System.out.println("Choose a difficulty (not yet implemented)");
+						verified = true;
+						botDiff = 0; // V
+						botTurn = 2; // allow this to be input
+						botExists = true;
 						
 					}
-					catch(Exception e){System.out.println("\"" + input +"\" is not a number");}
+					else if (input.equals("n"))
+					{
+						System.out.println("gotcha, starting 2-player mode");
+						verified = true;
+						botExists = false;
+					}
+					else	
+						System.out.println("\"" + input +"\" is not a proper input");
+					
 				}
+				catch(Exception e){System.out.println("thats not a proper input");}
+			}
+			verified = false;
+			
+			
+			while(isGameOver == false)
+			{
+				displayGrid();
+				System.out.println("Pick a tile ("+ printFree() +")");
 				
+				if (botExists && playerTurn == botTurn)
+				{
+					bot = new TTT_Bot(botDiff, botTurn, this); // this feels so grimy
+					inp = bot.makeMove();
+				}
+				else
+				{
+					while(verified == false)
+					{
+						
+						try 
+						{
+							input = sc.next();
+							inp = Integer.parseInt(input);
+							
+							if (inp < 1 || inp > 9)
+								System.out.println(inp +" is not between 1-9");
+							else if ((tileList[inp].isEmpty()) == false)
+								System.out.println("that tile's already taken");
+							else	
+								verified = true;
+							
+							
+						}
+						catch(Exception e){System.out.println("\"" + input +"\" is not a number");}
+					}
+					verified = false;
+				}
 				//player has chosen their move
+				System.out.println(inp);
 				freeTiles.remove((Integer) (inp));
 				tileList[inp].setSymbText(playerSymbol[playerTurn]);
 				

@@ -26,7 +26,7 @@ class TTT_Bot {
 	
 	TTT_Bot(int player, Game g)
 	{
-		this(1, player, g);
+		this(0, player, g);
 	}
 	
 	public int makeMove() //gameState is just a string with each index(+1) representing that tile
@@ -34,14 +34,19 @@ class TTT_Bot {
 		int opponent = player ^ 3;
 		String symbol = game.getSymbol(player);
 		String opponentSymbol = game.getSymbol(opponent);
+		System.out.println(bestCounter);
 		Tile[] best = bestCombo(game.getWinningCombos(player), symbol);
+		System.out.println(bestCounter);
 		ArrayList<Integer> freeTiles = game.getFreeTiles();
+		
+
 		
 		if(difficulty == 0)
 		{
 			// go for the win
 			if(bestCounter >= 1)
 			{
+				
 				for(int i = 0; i < 3; i++)
 				{
 					if (best[i].getSymbText().equals(symbol) == false)
@@ -55,15 +60,14 @@ class TTT_Bot {
 			{
 				for(int i = 0; i < 3; i++)
 				{
+					
 					if (best[i].getSymbText().equals(opponentSymbol) == false)
 						return best[i].getID();
 				}
 			}
 			
 			// put one down somewhere
-			
-			return (int)Math.floor(Math.random() * (freeTiles.size()+1)); // 1-9
-			//return;
+			return (int)Math.floor((Math.random() * freeTiles.size())+1); // 1-9
 		}
 		else if(difficulty == 1)
 		{
@@ -84,6 +88,11 @@ class TTT_Bot {
 // find the best combo
 	private Tile[] bestCombo(ArrayList<Tile[]> winningCombos, String symbol)
 	{
+		if (winningCombos.isEmpty())
+		{
+			bestCounter = 0;
+			return new Tile[] {};
+		}
 		Tile[] best = winningCombos.get(0);
 		bestCounter = 0;
 		int symbCounter = 0;
@@ -92,8 +101,11 @@ class TTT_Bot {
 		{
 			for(int i = 0; i < 3; i ++)
 			{
-				if (combo[i].getSymbText().equals(symbol));
+				if (combo[i].getSymbText().equals(symbol) == true);
+				{
+					System.out.println(combo[i].getSymbText().equals(symbol)); // why is this printing false??????
 					symbCounter ++;
+				}
 			}
 			if (symbCounter > bestCounter)
 			{

@@ -42,3 +42,7 @@ Why: for people with no friends
 Name: strategy design pattern
 What to do: employ the strategy design pattern
 Why: because i gotta
+--------------------------------------------------------------------------
+Name: turn order
+What to do: choose who goes first (against bots)
+Why: for more choice against bots
