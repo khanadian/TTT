@@ -101,7 +101,7 @@ class TTT_Bot {
 		{
 			for(int i = 0; i < 3; i ++)
 			{
-				if (combo[i].getSymbText().equals(symbol) == true);
+				if (combo[i].getSymbText().equals(symbol));
 				{
 					System.out.println(combo[i].getSymbText().equals(symbol)); // why is this printing false??????
 					symbCounter ++;
