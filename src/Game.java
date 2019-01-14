@@ -81,7 +81,7 @@ public class Game
 				}
 				
 				//player has chosen their move
-				freeTiles.remove((Integer) (inp-1));
+				freeTiles.remove((Integer) (inp));
 				tileList[inp].setSymbText(playerSymbol[playerTurn]);
 				
 				if(playerTurn == 1)

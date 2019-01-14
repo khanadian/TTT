@@ -14,7 +14,6 @@ class TTT_Bot {
 	private Game game;
 	
 	
-	
 	int difficulty; //0 = worst, 1 = medium, 2 = best
 	
 	TTT_Bot(int diff, int player, Game g)
@@ -36,7 +35,7 @@ class TTT_Bot {
 		String symbol = game.getSymbol(player);
 		String opponentSymbol = game.getSymbol(opponent);
 		Tile[] best = bestCombo(game.getWinningCombos(player), symbol);
-		
+		ArrayList<Integer> freeTiles = game.getFreeTiles();
 		
 		if(difficulty == 0)
 		{
@@ -63,7 +62,7 @@ class TTT_Bot {
 			
 			// put one down somewhere
 			
-			Math.floor(Math.random() * 9); // 0-8
+			return (int)Math.floor(Math.random() * (freeTiles.size()+1)); // 1-9
 			//return;
 		}
 		else if(difficulty == 1)
