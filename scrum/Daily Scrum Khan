@@ -50,3 +50,10 @@ Day 6
 what's done: Tile system works as intended now
 what to do: more JUnit testing
 obstacles: you cant test private methods, also most methods require the game to have been initialized
+
+-------
+Day 7
+-------
+what's done: started work on bot
+what to do: finish a difficulty for bot
+obstacles: picking a tile for bot when not winning or blocking

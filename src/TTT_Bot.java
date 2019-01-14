@@ -13,6 +13,8 @@ class TTT_Bot {
 	int bestCounter;
 	private Game game;
 	
+	
+	
 	int difficulty; //0 = worst, 1 = medium, 2 = best
 	
 	TTT_Bot(int diff, int player, Game g)
@@ -20,6 +22,7 @@ class TTT_Bot {
 		this.difficulty = diff;
 		this.player = player;
 		this.game = g;
+		
 	}
 	
 	TTT_Bot(int player, Game g)
@@ -60,7 +63,7 @@ class TTT_Bot {
 			
 			// put one down somewhere
 			
-			
+			Math.floor(Math.random() * 9); // 0-8
 			//return;
 		}
 		else if(difficulty == 1)
@@ -103,6 +106,8 @@ class TTT_Bot {
 		
 		return best;
 	}
+	
+	
 }
 
 /* DIFFICULTY
