@@ -72,7 +72,7 @@ public class Game
 					{
 						//System.out.println("Choose a difficulty (not yet implemented)");
 						verified = true;
-						botDiff = 0; // V
+						botDiff = 1; // v
 						botTurn = 2; // allow this to be input
 						botExists = true;
 						
@@ -94,13 +94,18 @@ public class Game
 			
 			while(isGameOver == false)
 			{
-				displayGrid();
-				System.out.println("Pick a tile ("+ printFree() +")");
+				
+				if (playerTurn != botTurn)
+				{
+					displayGrid();
+					System.out.println("Pick a tile ("+ printFree() +")");
+				}
 				
 				if (botExists && playerTurn == botTurn)
 				{
-					bot = new TTT_Bot(botDiff, botTurn, this); // this feels so grimy
+					bot = new TTT_Bot(botDiff, botTurn, this); // this feels so grimy, having to make a new bot every loop
 					inp = bot.makeMove();
+					System.out.println("Bot choose tile " + inp);
 				}
 				else
 				{
@@ -126,7 +131,6 @@ public class Game
 					verified = false;
 				}
 				//player has chosen their move
-				System.out.println(inp);
 				freeTiles.remove((Integer) (inp));
 				tileList[inp].setSymbText(playerSymbol[playerTurn]);
 				
@@ -243,7 +247,7 @@ public class Game
 	{
 		//printFree().equals("")                                   <- let them play it out
 		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
-		if(winningCombos1.isEmpty() && winningCombos2.isEmpty())
+		if(printFree().equals(""))
 			return 2;
 		
 		for (Tile[] combos: array)

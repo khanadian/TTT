@@ -6,9 +6,6 @@ import java.util.ArrayList;
 // can take in the game state and respond accordingly
 
 class TTT_Bot {
-	public static final int[] CORNERS = new int[]{1,3,7,9};
-	public static final int[] SIDES = new int[]{2,4,6,8};
-	public static final int CENTER = 5;
 	private int player;
 	int bestCounter;
 	private Game game;
@@ -34,13 +31,10 @@ class TTT_Bot {
 		int opponent = player ^ 3;
 		String symbol = game.getSymbol(player);
 		String opponentSymbol = game.getSymbol(opponent);
-		System.out.println(bestCounter);
 		Tile[] best = bestCombo(game.getWinningCombos(player), symbol);
-		System.out.println(bestCounter);
 		ArrayList<Integer> freeTiles = game.getFreeTiles();
 		
-
-		
+		// easy
 		if(difficulty == 0)
 		{
 			// go for the win
@@ -69,10 +63,68 @@ class TTT_Bot {
 			// put one down somewhere
 			return (int)Math.floor((Math.random() * freeTiles.size())+1); // 1-9
 		}
+		// medium
 		else if(difficulty == 1)
 		{
+			if(bestCounter >= 2)
+			{
+				
+				for(int i = 0; i < 3; i++)
+				{
+					if (best[i].getSymbText().equals(symbol) == false)
+						return best[i].getID();
+				}
+			}
+			int counter = bestCounter; // temporary storage of best counter and combos for bot
+			Tile[] actBest = best;
+			// block opponent
+			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
+			if (bestCounter >= 2) 
+			{
+				for (int i = 0; i < 3; i++) 
+				{
+					if (best[i].getSymbText().equals(opponentSymbol) == false)
+						return best[i].getID();
+				}
+			}
 			
+			if(counter >= 1) //entering this statement prematurely
+			{
+				Tile highPriority = new Tile(0); // must have priority of -1
+				for(int i = 0; i < 3; i++)
+				{
+					if (actBest[i].getSymbText().equals(symbol) == false && highPriority.getPriority() < actBest[i].getPriority())
+					{
+						highPriority = actBest[i];
+					}
+				}
+				return highPriority.getID();
+			}
+			
+			if(game.getFreeTiles().contains(Tile.CENTER))
+			{
+				return Tile.CENTER;
+			}
+			
+			for (int i = 0; i < 4; i++)
+			{
+				if(game.getFreeTiles().contains(Tile.CORNERS[i]))
+				{
+					return Tile.CORNERS[i];
+				}
+			}
+			
+			//at this point might as well pick randomly, should never reach this code
+			for (int i = 0; i < 4; i++)
+			{
+				if(game.getFreeTiles().contains(Tile.SIDES[i]))
+				{
+					return Tile.SIDES[i];
+				}
+			}
+			return 0;
 		}
+		// hard
 		else if(difficulty == 2)
 		{
 			
@@ -102,10 +154,7 @@ class TTT_Bot {
 			for(int i = 0; i < 3; i ++)
 			{
 				if (combo[i].getSymbText().equals(symbol))
-				{
-					System.out.println(combo[i].getSymbText().equals(symbol)); // why is this printing false??????
 					symbCounter ++;
-				}
 			}
 			if (symbCounter > bestCounter)
 			{
@@ -119,12 +168,20 @@ class TTT_Bot {
 	}
 	
 	
+	// finds the optimal combo, couldnt this be part of bestCombo?
+	private int optimalTile(ArrayList<Tile[]> combos)
+	{
+		
+		
+		
+		return 0;
+	}
 }
 
 /* DIFFICULTY
 	worst:
 *  1) go for the win (if you have one down, build upon it)
-*  2) block opponent (if they have 2 in a row and a potential win)
+*  2) block opponent (if they have 2 in a row and a potential win) (THIS CODE IS NEVER EXECUTED)
 *  3) put one down in random spot
 *
 	 medium:
