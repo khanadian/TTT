@@ -37,7 +37,7 @@ public class Game
 		
 		TTT_Bot bot;
 		boolean botExists = false;
-		int botTurn = -1;
+		int botTurn;
 		int botDiff = 0;
 		
 		System.out.println("Let's play some Tic Tac Toe!");
@@ -52,6 +52,7 @@ public class Game
 			winningCombos1 = setupList();
 			winningCombos2 = setupList();
 			playerTurn = 1;
+			botTurn = -1;
 			isGameOver = false;
 			
 			freeTiles = new ArrayList<Integer>();

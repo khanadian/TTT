@@ -43,6 +43,7 @@ public class Tile
 	public void setSymbText(String symbText)
 	{
 		this.symbText = symbText;
+		this.empty = false;
 	}
 	
 	public String getSymbText()

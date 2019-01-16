@@ -168,14 +168,6 @@ class TTT_Bot {
 	}
 	
 	
-	// finds the optimal combo, couldnt this be part of bestCombo?
-	private int optimalTile(ArrayList<Tile[]> combos)
-	{
-		
-		
-		
-		return 0;
-	}
 }
 
 /* DIFFICULTY
