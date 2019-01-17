@@ -18,7 +18,6 @@ class TTT_Bot {
 		this.difficulty = diff;
 		this.player = player;
 		this.game = g;
-		
 	}
 	
 	TTT_Bot(int player, Game g)
