@@ -8,9 +8,13 @@ Name: number tiles
 What to do: display which number represents which tile
 Why: user doesnt know what the numbers represent
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Name: Bots 
+What to do: add AI opponent
+Why: for people with no friends
+--------------------------------------------------------------------------
 
-
-_____________________________________________________________________________
+____________________________________________________________________________________________________________________
 USER STORIES
 
 --------------------------------------------------------------------------
@@ -33,11 +37,7 @@ Why: give users more control
 --------------------------------------------------------------------------
 Name: globals 
 What to do: create global constants like for what is occupying the tile
-Why: to stop confusion and use of arbitrary variables
---------------------------------------------------------------------------
-Name: Bots 
-What to do: add AI opponent
-Why: for people with no friends
+Why: to stop confusion and to stop use of arbitrary variables
 --------------------------------------------------------------------------
 Name: strategy design pattern
 What to do: employ the strategy design pattern
