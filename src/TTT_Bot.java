@@ -65,6 +65,11 @@ class TTT_Bot {
 		// medium
 		else if(difficulty == 1)
 		{
+			
+		}
+		// hard
+		else if(difficulty == 2)
+		{
 			if(bestCounter >= 2)
 			{
 				
@@ -124,10 +129,7 @@ class TTT_Bot {
 			return 0;
 		}
 		// hard
-		else if(difficulty == 2)
-		{
-			
-		}
+		
 		else 
 		{
 			return 10; // invalid difficulty value

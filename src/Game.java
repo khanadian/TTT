@@ -73,7 +73,7 @@ public class Game
 					{
 						//System.out.println("Choose a difficulty (not yet implemented)");
 						verified = true;
-						botDiff = 1; // v
+						botDiff = 2; // v
 						botTurn = 2; // allow this to be input
 						botExists = true;
 						
