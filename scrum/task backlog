@@ -50,3 +50,7 @@ Why: for more choice against bots
 Name: med bot
 What to do: make a medium difficulty bot
 Why: because the average player wants an opponent they can beat, but not easily
+--------------------------------------------------------------------------
+Name: player Object
+What to do: make player objects
+Why: for better organization and potentially more than 2 player modes.
