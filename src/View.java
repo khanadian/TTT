@@ -9,9 +9,16 @@ public class View extends JFrame {//implements ActionListener {
 	private Game game;
 	
 	// different panels for different parts of the screen
-	private JPanel jPan; // haha sounds like japan
+	
 	
 	// what is a UI manager?
+	
+	public void main (String[] args)
+	{
+		JPanel jPan; // haha sounds like japan
+		JFrame frame;
+		
+	}
 	
 	
 }
