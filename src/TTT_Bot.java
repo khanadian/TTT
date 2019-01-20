@@ -62,8 +62,7 @@ class TTT_Bot {
 				}
 			}
 			
-			// this only works on first call, but that's okay because it only gets called once
-			// this is because at the start, index = ID. once you choose a number, the ID can get desynced with the index
+			// pick a random tile
 			boolean isFree = false;
 			int x = 0;
 			Integer y;
@@ -114,14 +113,7 @@ class TTT_Bot {
 					return Tile.CORNERS[i];
 				}
 			}
-			//at this point might as well pick randomly, should never reach this code
-			/*for (int i = 0; i < 4; i++)
-			{
-				if(game.getFreeTiles().contains(Tile.SIDES[i]))
-				{
-					return Tile.SIDES[i];
-				}
-			}*/
+			
 			return 0;
 		}
 		// hard
@@ -174,14 +166,7 @@ class TTT_Bot {
 					return Tile.CORNERS[i];
 				}
 			}
-			//at this point might as well pick randomly, should never reach this code
-			/*for (int i = 0; i < 4; i++)
-			{
-				if(game.getFreeTiles().contains(Tile.SIDES[i]))
-				{
-					return Tile.SIDES[i];
-				}
-			}*/
+			
 			return 0;
 		}
 		else 

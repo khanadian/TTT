@@ -11,12 +11,12 @@ public class View extends JFrame {//implements ActionListener {
 	// different panels for different parts of the screen
 	
 	
-	// what is a UI manager?
-	
 	public void main (String[] args)
 	{
 		JPanel jPan; // haha sounds like japan
 		JFrame frame;
+		
+		
 		
 	}
 	
