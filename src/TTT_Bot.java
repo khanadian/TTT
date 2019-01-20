@@ -25,7 +25,8 @@ class TTT_Bot {
 		this(0, player, g);
 	}
 	
-	public int makeMove() //gameState is just a string with each index(+1) representing that tile
+	// returns an int representing the tile (not index) that was picked
+	public int makeMove()
 	{
 		int opponent = player ^ 3;
 		String symbol = game.getSymbol(player);
