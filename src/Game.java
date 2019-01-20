@@ -73,7 +73,7 @@ public class Game
 					{
 						//System.out.println("Choose a difficulty (not yet implemented)");
 						verified = true;
-						botDiff = 2; // v
+						botDiff = 0; // v
 						botTurn = 2; // allow this to be input
 						botExists = true;
 						
@@ -105,8 +105,9 @@ public class Game
 				if (botExists && playerTurn == botTurn)
 				{
 					bot = new TTT_Bot(botDiff, botTurn, this); // this feels so grimy, having to make a new bot every loop
-					inp = bot.makeMove();
-					System.out.println("Bot choose tile " + inp);
+					inp = bot.makeMove(); // actual number
+					System.out.println("Bot chooses tile " + inp);
+					
 				}
 				else
 				{
@@ -130,7 +131,9 @@ public class Game
 						catch(Exception e){System.out.println("\"" + input +"\" is not a number");}
 					}
 					verified = false;
+					
 				}
+				
 				//player has chosen their move
 				freeTiles.remove((Integer) (inp));
 				tileList[inp].setSymbText(playerSymbol[playerTurn]);

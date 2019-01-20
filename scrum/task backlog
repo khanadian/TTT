@@ -18,9 +18,9 @@ ________________________________________________________________________________
 USER STORIES
 
 --------------------------------------------------------------------------
-Name: 
-What to do: 
-Why:
+Name: bot rework
+What to do: rework the bots and their priority system
+Why: the only reason the bot is unbeatable is because of the order of the add() calls within setupList() 
 
 --------------------------------------------------------------------------
 Name: 3x3 array

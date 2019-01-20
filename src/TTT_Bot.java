@@ -39,9 +39,10 @@ class TTT_Bot {
 			// go for the win
 			if(bestCounter >= 1)
 			{
-				
+			System.out.println("going to win");
 				for(int i = 0; i < 3; i++)
 				{
+					System.out.println(best[i].getID());
 					if (best[i].getSymbText().equals(symbol) == false)
 						return best[i].getID();
 				}
@@ -51,6 +52,7 @@ class TTT_Bot {
 			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
 			if(bestCounter >= 2)
 			{
+				System.out.println("going to block");
 				for(int i = 0; i < 3; i++)
 				{
 					
@@ -59,13 +61,67 @@ class TTT_Bot {
 				}
 			}
 			
-			// put one down somewhere
-			return (int)Math.floor((Math.random() * freeTiles.size())+1); // 1-9
+			// this only works on first call, but that's okay because it only gets called once
+			// this is because at the start, index = ID. once you choose a number, the ID can get desynced with the index
+			boolean isFree = false;
+			int x = 0;
+			Integer y;
+			while (isFree == false)
+			{
+				// worst case,  this runs forever. average case, it'll run a few times.
+				x = (int)Math.floor(Math.random() * 10);
+				y = new Integer(x);
+				if (freeTiles.contains(y))
+				{
+					isFree = true;
+				}
+			}
+			
+			return x; // 1-9
 		}
 		// medium
 		else if(difficulty == 1)
 		{
+			if(bestCounter >= 2)
+			{
+				
+				for(int i = 0; i < 3; i++)
+				{
+					if (best[i].getSymbText().equals(symbol) == false)
+						return best[i].getID();
+				}
+			}
 			
+			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
+			if (bestCounter >= 2) 
+			{
+				for (int i = 0; i < 3; i++) 
+				{
+					if (best[i].getSymbText().equals(opponentSymbol) == false)
+						return best[i].getID();
+				}
+			}
+			
+			if(game.getFreeTiles().contains(Tile.CENTER))
+			{
+				return Tile.CENTER;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				if(game.getFreeTiles().contains(Tile.CORNERS[i]))
+				{
+					return Tile.CORNERS[i];
+				}
+			}
+			//at this point might as well pick randomly, should never reach this code
+			/*for (int i = 0; i < 4; i++)
+			{
+				if(game.getFreeTiles().contains(Tile.SIDES[i]))
+				{
+					return Tile.SIDES[i];
+				}
+			}*/
+			return 0;
 		}
 		// hard
 		else if(difficulty == 2)
@@ -82,6 +138,7 @@ class TTT_Bot {
 			int counter = bestCounter; // temporary storage of best counter and combos for bot
 			Tile[] actBest = best;
 			// block opponent
+			
 			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
 			if (bestCounter >= 2) 
 			{
@@ -92,7 +149,7 @@ class TTT_Bot {
 				}
 			}
 			
-			if(counter >= 1) //entering this statement prematurely
+			if(counter >= 1)
 			{
 				Tile highPriority = new Tile(0); // must have priority of -1
 				for(int i = 0; i < 3; i++)
@@ -109,7 +166,6 @@ class TTT_Bot {
 			{
 				return Tile.CENTER;
 			}
-			
 			for (int i = 0; i < 4; i++)
 			{
 				if(game.getFreeTiles().contains(Tile.CORNERS[i]))
@@ -117,25 +173,21 @@ class TTT_Bot {
 					return Tile.CORNERS[i];
 				}
 			}
-			
 			//at this point might as well pick randomly, should never reach this code
-			for (int i = 0; i < 4; i++)
+			/*for (int i = 0; i < 4; i++)
 			{
 				if(game.getFreeTiles().contains(Tile.SIDES[i]))
 				{
 					return Tile.SIDES[i];
 				}
-			}
+			}*/
 			return 0;
 		}
-		// hard
-		
 		else 
 		{
 			return 10; // invalid difficulty value
 		}
 		
-		return -1;
 	}
 
 // find the best combo
