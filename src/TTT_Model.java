@@ -77,7 +77,7 @@ public class TTT_Model
 	}
 	
 
-	//string representation of free/empty tiles
+	//TODO: should not need this, just disable the buttons
 	private String printFree()
 	{
 		boolean comma = false;
@@ -152,7 +152,7 @@ public class TTT_Model
 			return playerOneSymbol;
 		return playerTwoSymbol;
 	}
-	
+	//TODO: should not need this, just disable the buttons
 	public ArrayList<Integer> getFreeTiles()
 	{
 		return freeTiles;
