@@ -1,14 +1,6 @@
 SCRUM
 
 -------
-Day
--------
-what's done: 
-what to do:
-obstacles:
-
-
--------
 Day 1
 -------
 what's done: N/A
@@ -103,7 +95,23 @@ obstacles: remembering how to work with Java's graphics
 -------
 Day 16 - 1/22/2019
 -------
-what's done: Mde a simple UI
+what's done: Made a simple UI
 what to do: implement MVC
 obstacles: remembering the framework of MVC
+
+-------
+Day 17 - 1/23/2019
+-------
+what's done: Made a model class
+what to do: connect the components of MVC
+obstacles: remembering how to do all of this
+
+-------
+Day
+-------
+what's done: 
+what to do:
+obstacles:
+
+
 
