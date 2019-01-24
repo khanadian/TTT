@@ -40,24 +40,32 @@ public class TTT_Model
 		}
 	
 	}
-	
-	public void makeMove(int tileNum)
+	// makes a move for the current player, given the tile Number
+	public ArrayList<Tile[]> makeMove(int tileNum)
 	{
 		freeTiles.remove((Integer) (tileNum));
 		tileList[tileNum].setSymbText(playerSymbol[playerTurn]);
 		
+		
 		if(playerTurn == 1)
 		{
 			removeVoidCombos(winningCombos2, playerOneSymbol);
-			//check = checkEnd(winningCombos1);
 			}
 		else
 		{
 			removeVoidCombos(winningCombos1, playerTwoSymbol);
-			//check = checkEnd(winningCombos2);
 		}
 		
 		playerTurn = playerTurn ^ 3; //XOR, switches bits from 01 to 10, and vice versa
+		
+		if(playerTurn == 1)
+		{
+			return winningCombos1;
+		}
+		else
+		{
+			return winningCombos2;
+		}
 	}
 	
 	
@@ -77,7 +85,7 @@ public class TTT_Model
 	}
 	
 
-	//TODO: should not need this, just disable the buttons
+	//TODO: needed for checkEnd(), do not remove
 	private String printFree()
 	{
 		boolean comma = false;
@@ -95,7 +103,7 @@ public class TTT_Model
 	}
 	
 	//checks if game has ended, 1 = win, 2 = draw, 0 = continue
-	private int checkEnd(ArrayList<Tile[]> array)
+	public int checkEnd(ArrayList<Tile[]> array)
 	{
 		//printFree().equals("")                                   <- let them play it out
 		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
@@ -152,9 +160,15 @@ public class TTT_Model
 			return playerOneSymbol;
 		return playerTwoSymbol;
 	}
-	//TODO: should not need this, just disable the buttons
+	//needed for the bot, do not remove
 	public ArrayList<Integer> getFreeTiles()
 	{
 		return freeTiles;
 	}
+	
+	public int getPlayerTurn()
+	{
+		return playerTurn;
+	}
+	
 }
