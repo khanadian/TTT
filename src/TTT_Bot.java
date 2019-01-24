@@ -1,38 +1,38 @@
 import java.util.ArrayList;
 
 
-// a computer opponent for the game of tic tac toe.
+// a computer opponent for the TTT_Model of tic tac toe.
 // allows difficulty settings
-// can take in the game state and respond accordingly
+// can take in the TTT_Model state and respond accordingly
 
 class TTT_Bot {
 	private int player;
 	int bestCounter;
-	private Game game;
+	private TTT_Model TTT_Model;
 	
 	
 	int difficulty; //0 = worst, 1 = medium, 2 = best
 	
-	TTT_Bot(int diff, int player, Game g)
+	TTT_Bot(int diff, int player, TTT_Model m)
 	{
 		this.difficulty = diff;
 		this.player = player;
-		this.game = g;
+		this.TTT_Model = m;
 	}
 	
-	TTT_Bot(int player, Game g)
+	TTT_Bot(int player, TTT_Model m)
 	{
-		this(0, player, g);
+		this(0, player, m);
 	}
 	
 	// returns an int representing the tile (not index) that was picked
 	public int makeMove()
 	{
 		int opponent = player ^ 3;
-		String symbol = game.getSymbol(player);
-		String opponentSymbol = game.getSymbol(opponent);
-		Tile[] best = bestCombo(game.getWinningCombos(player), symbol);
-		ArrayList<Integer> freeTiles = game.getFreeTiles();
+		String symbol = TTT_Model.getSymbol(player);
+		String opponentSymbol = TTT_Model.getSymbol(opponent);
+		Tile[] best = bestCombo(TTT_Model.getWinningCombos(player), symbol);
+		ArrayList<Integer> freeTiles = TTT_Model.getFreeTiles();
 		
 		// easy
 		if(difficulty == 0)
@@ -50,7 +50,7 @@ class TTT_Bot {
 			}
 			
 			// block opponent
-			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
+			best = bestCombo(TTT_Model.getWinningCombos(opponent), opponentSymbol);
 			if(bestCounter >= 2)
 			{
 				System.out.println("going to block");
@@ -92,7 +92,7 @@ class TTT_Bot {
 				}
 			}
 			
-			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
+			best = bestCombo(TTT_Model.getWinningCombos(opponent), opponentSymbol);
 			if (bestCounter >= 2) 
 			{
 				for (int i = 0; i < 3; i++) 
@@ -102,13 +102,13 @@ class TTT_Bot {
 				}
 			}
 			
-			if(game.getFreeTiles().contains(Tile.CENTER))
+			if(TTT_Model.getFreeTiles().contains(Tile.CENTER))
 			{
 				return Tile.CENTER;
 			}
 			for (int i = 0; i < 4; i++)
 			{
-				if(game.getFreeTiles().contains(Tile.CORNERS[i]))
+				if(TTT_Model.getFreeTiles().contains(Tile.CORNERS[i]))
 				{
 					return Tile.CORNERS[i];
 				}
@@ -132,7 +132,7 @@ class TTT_Bot {
 			Tile[] actBest = best;
 			// block opponent
 			
-			best = bestCombo(game.getWinningCombos(opponent), opponentSymbol);
+			best = bestCombo(TTT_Model.getWinningCombos(opponent), opponentSymbol);
 			if (bestCounter >= 2) 
 			{
 				for (int i = 0; i < 3; i++) 
@@ -155,13 +155,13 @@ class TTT_Bot {
 				return highPriority.getID();
 			}
 			
-			if(game.getFreeTiles().contains(Tile.CENTER))
+			if(TTT_Model.getFreeTiles().contains(Tile.CENTER))
 			{
 				return Tile.CENTER;
 			}
 			for (int i = 0; i < 4; i++)
 			{
-				if(game.getFreeTiles().contains(Tile.CORNERS[i]))
+				if(TTT_Model.getFreeTiles().contains(Tile.CORNERS[i]))
 				{
 					return Tile.CORNERS[i];
 				}
