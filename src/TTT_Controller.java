@@ -3,12 +3,12 @@ import java.awt.event.ActionEvent;
 
 public class TTT_Controller {
 
-	private Game game;
+	private TTT_Model model;
 	private View view;
 	
-	public TTT_Controller(Game g, View v)
+	public TTT_Controller(TTT_Model m, View v)
 	{
-		game = g;
+		model = m;
 		view = v;
 	}
 	
@@ -16,7 +16,7 @@ public class TTT_Controller {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			
+			view.actionPerformed(e);
 		}
 	}
 }

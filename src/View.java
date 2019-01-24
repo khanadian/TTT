@@ -7,16 +7,16 @@ import java.awt.*;
 
 public class View extends JFrame implements ActionListener {
 
-	//private static final long serialVersionUID = 1L;  // just in case
+	private static final long serialVersionUID = 1L;  // just in case
 	
-	private Game game;
+	private TTT_Model model;
 	
 	// different panels for different parts of the screen
 	
 	
-	public View(Game g)
+	public View(TTT_Model m)
 	{
-		game = g;
+		model = m;
 		setUI();
 	}
 	private void setUI()
@@ -28,7 +28,7 @@ public class View extends JFrame implements ActionListener {
 		
 		JPanel jPan = new JPanel(new GridLayout(3,3));
 		
-		JLabel instructions = new JLabel(game.getSymbol(1), SwingConstants.CENTER);
+		JLabel instructions = new JLabel(model.getSymbol(1), SwingConstants.CENTER);
 		
 		JButton[] tile = new JButton[10];
 		for(int i = 1; i < 10; i++)
@@ -49,8 +49,9 @@ public class View extends JFrame implements ActionListener {
 		
 	}
 	
-	public void actionPerformed(ActionEvent e) 
+	@Override
+	public void actionPerformed(ActionEvent e)
 	{
-		
+		((JComponent) e.getSource()).setEnabled(true);
 	}
 }
