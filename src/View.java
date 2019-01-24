@@ -52,6 +52,6 @@ public class View extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		((JComponent) e.getSource()).setEnabled(true);
+		((JComponent) e.getSource()).setEnabled(false);
 	}
 }

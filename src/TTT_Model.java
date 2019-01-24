@@ -15,13 +15,13 @@ public class TTT_Model
 	String[] playerSymbol;
 	
 	// with bot
-	private TTT_Model(int diff)
+	public TTT_Model(int diff)
 	{
 		
 	}
 	
 	// no bot
-	private TTT_Model()
+	public TTT_Model()
 	{
 		//setting up
 		playerSymbol = new String[] {"ERROR", playerOneSymbol, playerTwoSymbol};
