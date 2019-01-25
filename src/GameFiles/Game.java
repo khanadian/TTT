@@ -1,6 +1,4 @@
 package GameFiles;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 //game of tic tac toe
 public class Game 
@@ -23,7 +21,6 @@ public class Game
 		//boolean keepPlaying = true;
 		TTT_Model model = new TTT_Model();
 		View view = new View(model);
-		TTT_Controller cont = new TTT_Controller(model, view);
 		
 	}
 	
