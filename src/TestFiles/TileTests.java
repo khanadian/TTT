@@ -1,6 +1,9 @@
+package TestFiles;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import GameFiles.Tile;
 
 public class TileTests {
 

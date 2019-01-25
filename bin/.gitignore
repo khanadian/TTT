@@ -1,8 +1,6 @@
-/TileTests.class
-/Game$1.class
-/GameTest.class
+/TTT_Controller.class
+/TTT_Controller$TileListener.class
+/TTT_Model.class
 /TTT_Bot.class
-/Player.class
-/View.class
-/Game.class
-/Tile.class
+/GameFiles/
+/TestFiles/
