@@ -15,6 +15,9 @@ public class TTT_Model
 	private String playerTwoSymbol = "O";
 	String[] playerSymbol;
 	
+	private Tile[] winningCombo = new Tile[3]; // the combination that actually wins
+	
+	
 	// with bot
 	public TTT_Model(int diff)
 	{
@@ -57,7 +60,7 @@ public class TTT_Model
 			removeVoidCombos(winningCombos1, playerTwoSymbol);
 		}
 		
-		playerTurn = playerTurn ^ 3; //XOR, switches bits from 01 to 10, and vice versa
+		
 		
 		if(playerTurn == 1)
 		{
@@ -69,7 +72,11 @@ public class TTT_Model
 		}
 	}
 	
-	
+	// alternates whose turn it is
+	public void switchPlayer()
+	{
+		playerTurn = playerTurn ^ 3; //XOR, switches bits from 01 to 10, and vice versa
+	}
 	//sets up the winning combos for a player
 	private ArrayList<Tile[]> setupList()
 	{
@@ -116,6 +123,8 @@ public class TTT_Model
 			if((combos[0].getSymbText().equals(combos[1].getSymbText()) && 
 					combos[2].getSymbText().equals(combos[1].getSymbText())))
 			{
+				
+				winningCombo = combos;
 				return 1;
 			}
 		}
@@ -148,6 +157,12 @@ public class TTT_Model
 		}
 	}
 
+	// returns the combo that won the game
+	public Tile[] getWinCombo()
+	{
+		return winningCombo;
+	}
+	
 	public ArrayList<Tile[]> getWinningCombos(int player)
 	{
 		if(player == 1)

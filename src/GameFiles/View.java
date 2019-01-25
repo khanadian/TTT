@@ -56,18 +56,25 @@ public class View extends JFrame implements ActionListener {
 		JButton button = (JButton) e.getSource();
 		button.setEnabled(false);
 		int turn = model.getPlayerTurn();
+		
 		// make the move and check if it is over
 		ArrayList<Tile[]> win = model.makeMove(Integer.parseInt(button.getText()));
 		button.setText(model.getSymbol(turn));
 		
 		if (model.checkEnd(win) == 0) 
 		{
+			model.switchPlayer();
 			instructions.setText(model.getSymbol(model.getPlayerTurn()));
 		}
 		else
 		{
+			Tile[] winCombo = model.getWinCombo();
+			System.out.println("done");
 			for(int i = 1; i < 10; i++)
 			{
+				// check if tile is part of winning combo
+				// if it is, don't disable it
+				
 				tile[i].setEnabled(false);
 			}
 			
@@ -79,6 +86,7 @@ public class View extends JFrame implements ActionListener {
 			{
 				instructions.setText("Draw!");
 			}
+			
 			
 		}
 	}
