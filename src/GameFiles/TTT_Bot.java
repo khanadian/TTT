@@ -11,7 +11,11 @@ class TTT_Bot {
 	int bestCounter;
 	private TTT_Model TTT_Model;
 	
-	int difficulty; //0 = worst, 1 = medium, 2 = best
+	public static final int EASY = -1;
+	public static final int MEDIUM = 0;
+	public static final int HARD = 1;
+	public static final int IMPOSSIBLE = 2;
+	int difficulty;
 	
 	TTT_Bot(int diff, int player, TTT_Model m)
 	{
@@ -34,7 +38,7 @@ class TTT_Bot {
 		Tile[] best = bestCombo(TTT_Model.getWinningCombos(player), symbol);
 		ArrayList<Integer> freeTiles = TTT_Model.getFreeTiles();
 		
-		if (difficulty == -1)
+		if (difficulty == EASY)
 		{
 			boolean isFree = false;
 			int x = 0;
@@ -53,8 +57,7 @@ class TTT_Bot {
 			return x;
 		}
 		
-		// medium
-		if(difficulty == 0)
+		if(difficulty == MEDIUM)
 		{
 			// go for the win
 			if(bestCounter >= 1)
@@ -95,8 +98,7 @@ class TTT_Bot {
 			
 			return x; // 1-9
 		}
-		// hard
-		else if(difficulty == 1)
+		else if(difficulty == HARD)
 		{
 			if(bestCounter >= 2)
 			{
@@ -140,8 +142,7 @@ class TTT_Bot {
 			
 			return 0;
 		}
-		// impossible
-		else if(difficulty == 2)
+		else if(difficulty == IMPOSSIBLE)
 		{
 			if(bestCounter >= 2)
 			{
@@ -190,7 +191,13 @@ class TTT_Bot {
 					return Tile.CORNERS[i];
 				}
 			}
-			
+			for (int i = 0; i < 4; i++)
+			{
+				if(TTT_Model.getFreeTiles().contains(Tile.SIDES[i]))
+				{
+					return Tile.SIDES[i];
+				}
+			}
 			return 0;
 		}
 		else 

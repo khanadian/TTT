@@ -26,6 +26,7 @@ public class View extends JFrame implements ActionListener {
 		setUI();
 	}
 	
+	//remakes UI on game reset
 	private void restartUI()
 	{
 		model = new TTT_Model();
@@ -39,7 +40,7 @@ public class View extends JFrame implements ActionListener {
 		askBot();
 	}
 	
-	
+	//makes UI on setup
 	private void setUI()
 	{
 		frame = new JFrame("Tic Tac Toe");
@@ -68,6 +69,7 @@ public class View extends JFrame implements ActionListener {
 		askBot();
 	}
 	
+	//makes a move for the bot
 	private void botMove()
 	{
 		if (botExists == 0 && model.getPlayerTurn() == bot.getBotTurn())
@@ -83,7 +85,7 @@ public class View extends JFrame implements ActionListener {
 		if (botExists == 0)
 		{
 			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
-			bot = new TTT_Bot(-1, playerTurn ^ 3, model);
+			bot = new TTT_Bot(TTT_Bot.IMPOSSIBLE, playerTurn ^ 3, model); //TODO allow user to choose difficulty
 			botMove();
 		}
 	}
