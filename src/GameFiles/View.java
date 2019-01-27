@@ -36,13 +36,7 @@ public class View extends JFrame implements ActionListener {
 		}
 		instructions.setText(model.getSymbol(1));
 		
-		botExists = JOptionPane.showConfirmDialog(null,"Would you like to play against a bot?", "choose one", JOptionPane.YES_NO_OPTION);
-		if (botExists == 0)
-		{
-			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
-			bot = new TTT_Bot(-1, playerTurn ^ 3, model);
-			botMove();
-		}
+		askBot();
 	}
 	
 	
@@ -71,13 +65,7 @@ public class View extends JFrame implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
-		botExists = JOptionPane.showConfirmDialog(null,"Would you like to play against a bot?", "choose one", JOptionPane.YES_NO_OPTION);
-		if (botExists == 0)
-		{
-			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
-			bot = new TTT_Bot(-1, playerTurn ^ 3, model);
-			botMove();
-		}
+		askBot();
 	}
 	
 	private void botMove()
@@ -85,6 +73,18 @@ public class View extends JFrame implements ActionListener {
 		if (botExists == 0 && model.getPlayerTurn() == bot.getBotTurn())
 		{
 			tile[bot.makeMove()].doClick();
+		}
+	}
+	
+	//asks if player wants a bot opponent
+	private void askBot()
+	{
+		botExists = JOptionPane.showConfirmDialog(null,"Would you like to play against a bot?", "choose one", JOptionPane.YES_NO_OPTION);
+		if (botExists == 0)
+		{
+			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
+			bot = new TTT_Bot(-1, playerTurn ^ 3, model);
+			botMove();
 		}
 	}
 	
