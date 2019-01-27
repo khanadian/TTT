@@ -10,7 +10,6 @@ public class Game
 	
 	private Game()
 	{
-		//boolean keepPlaying = true;
 		TTT_Model model = new TTT_Model();
 		View view = new View(model);
 		
