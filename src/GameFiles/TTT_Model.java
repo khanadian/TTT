@@ -18,13 +18,6 @@ public class TTT_Model
 	private Tile[] winningCombo = new Tile[3]; // the combination that actually wins
 	
 	
-	// with bot
-	public TTT_Model(int diff)
-	{
-		
-	}
-	
-	// no bot
 	public TTT_Model()
 	{
 		//setting up
@@ -113,21 +106,24 @@ public class TTT_Model
 	//checks if game has ended, 1 = win, 2 = draw, 0 = continue
 	public int checkEnd(ArrayList<Tile[]> array)
 	{
-		//printFree().equals("")                                   <- let them play it out
-		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
-		if(printFree().equals(""))
-			return 2;
+		
 		
 		for (Tile[] combos: array)
 		{
 			if((combos[0].getSymbText().equals(combos[1].getSymbText()) && 
 					combos[2].getSymbText().equals(combos[1].getSymbText())))
 			{
-				
 				winningCombo = combos;
 				return 1;
 			}
 		}
+		
+		//printFree().equals("")                                   <- let them play it out
+		//winningCombos1.isEmpty() && winningCombos2.isEmpty()     <- would draw early, no need to play out
+				
+		if(printFree().equals(""))
+			return 2;
+		
 		return 0;
 	}
 	

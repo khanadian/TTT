@@ -13,7 +13,10 @@ Name: Bots
 What to do: add AI opponent
 Why: for people with no friends
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+Name: med bot
+What to do: make a medium difficulty bot
+Why: because the average player wants an opponent they can beat, but not easily
 ____________________________________________________________________________________________________________________
 USER STORIES
 
@@ -21,7 +24,6 @@ USER STORIES
 Name: bot rework
 What to do: rework the bots and their priority system
 Why: the only reason the bot is unbeatable is because of the order of the add() calls within setupList() 
-
 --------------------------------------------------------------------------
 Name: 3x3 array
 What to do: convert the program to make the grid 3x3 instead of taking a single number
@@ -41,16 +43,17 @@ Why: to stop confusion and to stop use of arbitrary variables
 --------------------------------------------------------------------------
 Name: strategy design pattern
 What to do: employ the strategy design pattern
-Why: because i gotta
+Why: to add a layer of abstraction between what the bot must do and how it chooses to do it
 --------------------------------------------------------------------------
 Name: turn order
 What to do: choose who goes first (against bots)
 Why: for more choice against bots
 --------------------------------------------------------------------------
-Name: med bot
-What to do: make a medium difficulty bot
-Why: because the average player wants an opponent they can beat, but not easily
---------------------------------------------------------------------------
 Name: player Object
 What to do: make player objects
 Why: for better organization and potentially more than 2 player modes.
+--------------------------------------------------------------------------
+Name: Controller
+What to do: seperate view from controller
+Why: for better structured code
+

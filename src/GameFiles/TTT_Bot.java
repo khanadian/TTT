@@ -7,10 +7,9 @@ import java.util.ArrayList;
 // can take in the TTT_Model state and respond accordingly
 
 class TTT_Bot {
-	private int player;
+	private int player; //bot's turn
 	int bestCounter;
 	private TTT_Model TTT_Model;
-	
 	
 	int difficulty; //0 = worst, 1 = medium, 2 = best
 	
@@ -35,16 +34,33 @@ class TTT_Bot {
 		Tile[] best = bestCombo(TTT_Model.getWinningCombos(player), symbol);
 		ArrayList<Integer> freeTiles = TTT_Model.getFreeTiles();
 		
-		// easy
+		if (difficulty == -1)
+		{
+			boolean isFree = false;
+			int x = 0;
+			Integer y;
+			while (isFree == false)
+			{
+				// worst case,  this runs forever. average case, it'll run a few times.
+				x = (int)Math.floor(Math.random() * 10);
+				y = new Integer(x);
+				if (freeTiles.contains(y))
+				{
+					isFree = true;
+				}
+			}
+			
+			return x;
+		}
+		
+		// medium
 		if(difficulty == 0)
 		{
 			// go for the win
 			if(bestCounter >= 1)
 			{
-			System.out.println("going to win");
 				for(int i = 0; i < 3; i++)
 				{
-					System.out.println(best[i].getID());
 					if (best[i].getSymbText().equals(symbol) == false)
 						return best[i].getID();
 				}
@@ -54,7 +70,6 @@ class TTT_Bot {
 			best = bestCombo(TTT_Model.getWinningCombos(opponent), opponentSymbol);
 			if(bestCounter >= 2)
 			{
-				System.out.println("going to block");
 				for(int i = 0; i < 3; i++)
 				{
 					
@@ -80,7 +95,7 @@ class TTT_Bot {
 			
 			return x; // 1-9
 		}
-		// medium
+		// hard
 		else if(difficulty == 1)
 		{
 			if(bestCounter >= 2)
@@ -115,9 +130,17 @@ class TTT_Bot {
 				}
 			}
 			
+			for (int i = 0; i < 4; i++)
+			{
+				if(TTT_Model.getFreeTiles().contains(Tile.SIDES[i]))
+				{
+					return Tile.SIDES[i];
+				}
+			}
+			
 			return 0;
 		}
-		// hard
+		// impossible
 		else if(difficulty == 2)
 		{
 			if(bestCounter >= 2)
@@ -177,6 +200,12 @@ class TTT_Bot {
 		
 	}
 
+	public int getBotTurn()
+	{
+		return player;
+	}
+	
+	
 // find the best combo
 	private Tile[] bestCombo(ArrayList<Tile[]> winningCombos, String symbol)
 	{
