@@ -5,11 +5,7 @@ public class Game
 {
 	public static void main(String[] args) 
 	{
-		javax.swing.SwingUtilities.invokeLater(new Runnable() { // this is to follow active program protocols
-			public void run() 
-			{
-				new Game();
-			}});
+		new Game();
 	}
 	
 	private Game()
