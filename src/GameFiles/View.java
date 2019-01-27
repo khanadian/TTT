@@ -34,6 +34,7 @@ public class View extends JFrame implements ActionListener {
 		{
 			tile[i].setEnabled(true);
 			tile[i].setText(Integer.toString(i));
+			tile[i].setBackground(null);
 		}
 		instructions.setText(model.getSymbol(1));
 		
@@ -97,9 +98,19 @@ public class View extends JFrame implements ActionListener {
 		button.setEnabled(false);
 		int turn = model.getPlayerTurn();
 		
+		
 		// make the move and check if it is over
 		ArrayList<Tile[]> win = model.makeMove(Integer.parseInt(button.getText()));
 		button.setText(model.getSymbol(turn));
+		
+		if (turn == 1)
+		{
+			button.setBackground(Color.CYAN);
+		}
+		else
+		{
+			button.setBackground(Color.ORANGE);
+		}
 		
 		if (model.checkEnd(win) == 0) 
 		{

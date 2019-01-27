@@ -22,6 +22,10 @@ Name: turn order
 What to do: choose who goes first (against bots)
 Why: for more choice against bots
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Name: Colors
+What to do: give each player a color
+Why: easier to destinguish tiles
 ____________________________________________________________________________________________________________________
 USER STORIES
 --------------------------------------------------------------------------
@@ -30,14 +34,11 @@ FEATURES
 	Name: Custom symbols
 	What to do: Allow users to input a character as their symbol
 	Why: give users more control
+	
 	--------------------------------------------------------------------------
-	Name: Colors
-	What to do: give each player a color
-	Why: easier to destinguish tiles
-		--------------------------------------------------------------------------
-		Name: Custom colors
-		What to do: allow players to choose colors
-		Why: player freedom
+	Name: Custom colors
+	What to do: allow players to choose colors
+	Why: player freedom
 	--------------------------------------------------------------------------
 	Name: future sight
 	What to do: allow the user to see the best moves possible (in terms of worst case outcome)
