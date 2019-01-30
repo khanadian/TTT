@@ -18,11 +18,7 @@ public class StrategyImpossible extends Strategy{
 		if(bestCounter >= 2)
 		{
 			System.out.println("in it to win it");
-			for(int i = 0; i < 3; i++)
-			{
-				if (best[i].getSymbText().equals(bot.getSymbol(player)) == false)
-					return best[i].getID();
-			}
+			winOrBlock(player);
 		}
 		int counter = bestCounter; // temporary storage of best counter and combos for bot
 		Tile[] actBest = best;
@@ -30,11 +26,14 @@ public class StrategyImpossible extends Strategy{
 		
 		System.out.println("can I block?");
 		
-		best = bot.getBestCombo(player^3);
 		super.update(player^3);
+		best = bot.getBestCombo(player^3);
+		bestCounter = bot.getBestCounter();
+		System.out.println(bestCounter);
 		if (bestCounter >= 2) 
 		{
-			for (int i = 0; i < 3; i++) 
+			System.out.println("reached");
+			for(int i = 0; i < 3; i++) // replace with winOrBlock()
 			{
 				if (best[i].getSymbText().equals(bot.getSymbol(player^3)) == false)
 					return best[i].getID();

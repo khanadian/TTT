@@ -15,25 +15,16 @@ public class Strategyhard extends Strategy{
 		int player = bot.getBotTurn();
 		Tile[] best = bot.getBestCombo(player);
 		
-		// combine these 2 ifs
 		if(bestCounter >= 2)
 		{
 			
-			for(int i = 0; i < 3; i++)
-			{
-				if (best[i].getSymbText().equals(bot.getSymbol(player)) == false)
-					return best[i].getID();
-			}
+			winOrBlock(player);
 		}
 		
 		best = bot.getBestCombo(player^3);
 		if (bestCounter >= 2) 
 		{
-			for (int i = 0; i < 3; i++) 
-			{
-				if (best[i].getSymbText().equals(bot.getSymbol(player^3)) == false)
-					return best[i].getID();
-			}
+			winOrBlock(player^3);
 		}
 		
 		

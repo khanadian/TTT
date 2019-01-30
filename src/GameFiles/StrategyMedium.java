@@ -30,12 +30,7 @@ public class StrategyMedium extends Strategy{
 		best = bot.getBestCombo(player^3); // best opponent combo
 		if(bestCounter >= 2)
 		{
-			for(int i = 0; i < 3; i++)
-			{
-				
-				if (best[i].getSymbText().equals(opponentSymbol) == false)
-					return best[i].getID();
-			}
+			winOrBlock(player^3);
 		}
 	
 		// pick a random tile
