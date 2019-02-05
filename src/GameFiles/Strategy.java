@@ -23,7 +23,6 @@ public class Strategy {
 		freeTiles = bot.getFrTiles(); 
 		best = bot.getBestCombo(p);
 		bestCounter = bot.getBestCounter();
-		System.out.println(bestCounter);
 	}
 	
 	public int makeMove()
