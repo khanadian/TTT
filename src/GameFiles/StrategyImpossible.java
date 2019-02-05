@@ -11,14 +11,17 @@ public class StrategyImpossible extends Strategy{
 	@Override
 	public int makeMove()
 	{
+		super.update(player);
 		int bestCounter = bot.getBestCounter();
 		int player = bot.getBotTurn();
 		Tile[] best = bot.getBestCombo(player);
+		
 		System.out.println("can I win?");
 		if(bestCounter >= 2)
 		{
 			System.out.println("in it to win it");
-			winOrBlock(player);
+			
+			return winOrBlock(player);
 		}
 		int counter = bestCounter; // temporary storage of best counter and combos for bot
 		Tile[] actBest = best;
@@ -33,11 +36,7 @@ public class StrategyImpossible extends Strategy{
 		if (bestCounter >= 2) 
 		{
 			System.out.println("reached");
-			for(int i = 0; i < 3; i++) // replace with winOrBlock()
-			{
-				if (best[i].getSymbText().equals(bot.getSymbol(player^3)) == false)
-					return best[i].getID();
-			}
+			return winOrBlock(player^3);
 		}
 		
 		System.out.println("can I build?");
@@ -49,8 +48,6 @@ public class StrategyImpossible extends Strategy{
 			
 			for(int i = 0; i < 3; i++)
 			{
-				System.out.println(i);
-				System.out.println(actBest[i]);
 				if (actBest[i].getSymbText().equals(bot.getSymbol(player)) == false && highPriority.getPriority() < actBest[i].getPriority())
 				{
 					highPriority = actBest[i];
