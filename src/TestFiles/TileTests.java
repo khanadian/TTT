@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import GameFiles.Tile;
+//import GameFiles.Tile;
 
 public class TileTests {
 
@@ -12,7 +12,7 @@ public class TileTests {
 	@Test
 	public void test() {
 		
-		Tile[] tileList = new Tile[10];
+		//Tile[] tileList = new Tile[10];
 		
 		fail("Not yet implemented");
 	}

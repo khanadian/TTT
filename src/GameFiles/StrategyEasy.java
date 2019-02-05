@@ -1,6 +1,5 @@
 package GameFiles;
 
-import java.util.ArrayList;
 
 public class StrategyEasy extends Strategy{
 	

@@ -1,6 +1,5 @@
 package GameFiles;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 //game of tic tac toe
 public class TTT_Model 
