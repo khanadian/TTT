@@ -1,7 +1,7 @@
 package GameFiles;
 
 
-public class StrategyMedium extends Strategy{
+public class StrategyMedium extends Strategy implements StratInterface{
 
 	public StrategyMedium(TTT_Bot bot) {
 		super(bot);
