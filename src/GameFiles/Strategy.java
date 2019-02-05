@@ -36,7 +36,6 @@ public class Strategy {
 	{
 		for(int i = 0; i < 3; i++)
 		{
-			System.out.println(best[i]);
 			if (best[i].getSymbText().equals(bot.getSymbol(p)) == false)
 				return best[i].getID();
 		}
