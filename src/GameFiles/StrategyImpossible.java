@@ -1,6 +1,5 @@
 package GameFiles;
 
-import java.util.ArrayList;
 
 public class StrategyImpossible extends Strategy{
 
@@ -19,7 +18,7 @@ public class StrategyImpossible extends Strategy{
 		if(bestCounter >= 2)
 		{
 			
-			return winOrBlock(player);
+			return win(player);
 		}
 		int counter = bestCounter; // temporary storage of best counter and combos for bot
 		Tile[] actBest = best;
@@ -31,7 +30,7 @@ public class StrategyImpossible extends Strategy{
 		bestCounter = bot.getBestCounter();
 		if (bestCounter >= 2) 
 		{
-			return winOrBlock(player^3);
+			return block(player^3);
 		}
 		
 		

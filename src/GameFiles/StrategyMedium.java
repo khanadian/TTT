@@ -1,6 +1,5 @@
 package GameFiles;
 
-import java.util.ArrayList;
 
 public class StrategyMedium extends Strategy{
 
@@ -13,24 +12,18 @@ public class StrategyMedium extends Strategy{
 	{
 		int bestCounter = bot.getBestCounter();
 		int player = bot.getBotTurn();
-		Tile[] best = bot.getBestCombo(player);
 		
 		// go for the win
 		if(bestCounter >= 1)
 		{
-			for(int i = 0; i < 3; i++)
-			{
-				if (best[i].getSymbText().equals(bot.getSymbol(player)) == false)
-					return best[i].getID();
-			}
+			return win(player);
 		}
 			
 		// block opponent
-		String opponentSymbol = bot.getSymbol(player^3);
 		best = bot.getBestCombo(player^3); // best opponent combo
 		if(bestCounter >= 2)
 		{
-			winOrBlock(player^3);
+			return block(player^3);
 		}
 	
 		// pick a random tile

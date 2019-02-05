@@ -1,6 +1,5 @@
 package GameFiles;
 
-import java.util.ArrayList;
 
 public class Strategyhard extends Strategy{
 
@@ -13,18 +12,17 @@ public class Strategyhard extends Strategy{
 	{
 		int bestCounter = bot.getBestCounter();
 		int player = bot.getBotTurn();
-		Tile[] best = bot.getBestCombo(player);
 		
 		if(bestCounter >= 2)
 		{
 			
-			winOrBlock(player);
+			return win(player);
 		}
 		
 		best = bot.getBestCombo(player^3);
 		if (bestCounter >= 2) 
 		{
-			winOrBlock(player^3);
+			return block(player^3);
 		}
 		
 		

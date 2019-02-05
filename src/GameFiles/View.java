@@ -82,7 +82,7 @@ public class View extends JFrame implements ActionListener {
 	//asks if player wants a bot opponent
 	private void askBot()
 	{
-		botExists = JOptionPane.showConfirmDialog(null,"Would you like to play against a bot?", "choose one", JOptionPane.YES_NO_OPTION);
+		botExists = JOptionPane.showConfirmDialog(null,"Would you like to face an unbeatable opponent?", "choose one", JOptionPane.YES_NO_OPTION);
 		if (botExists == 0)
 		{
 			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;

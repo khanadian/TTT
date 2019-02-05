@@ -31,7 +31,7 @@ public class Strategy {
 	}
 	
 	// will act upon a row of 2
-	public int winOrBlock(int p)
+	public int win(int p)
 	{
 		for(int i = 0; i < 3; i++)
 		{
@@ -42,7 +42,11 @@ public class Strategy {
 		return 0;
 	}
 	
-	
+	// chooses a tile that would have let the opponent win
+	public int block(int p)
+	{
+		return win(p);
+	}
 	
 	
 	
