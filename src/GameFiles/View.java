@@ -124,10 +124,14 @@ public class View extends JFrame implements ActionListener {
 			Tile[] winCombo = model.getWinCombo();
 			for(int i = 1; i < 10; i++)
 			{
-				// TODO : check if tile is part of winning combo
-				// if it is, don't disable it
-				
+				tile[i].setBackground(null);
 				tile[i].setEnabled(false);
+			}
+			
+			
+			for(int i = 0; i < 3; i++)
+			{
+				tile[winCombo[i].getID()].setEnabled(true);
 			}
 			
 			if (model.checkEnd(win) == 1)
