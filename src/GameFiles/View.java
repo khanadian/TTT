@@ -104,13 +104,9 @@ public class View extends JFrame implements ActionListener {
 		button.setText(model.getSymbol(turn));
 		
 		if (turn == 1)
-		{
 			button.setBackground(Color.CYAN);
-		}
 		else
-		{
 			button.setBackground(Color.ORANGE);
-		}
 		
 		if (model.checkEnd(win) == 0) 
 		{
@@ -121,7 +117,6 @@ public class View extends JFrame implements ActionListener {
 		}
 		else
 		{
-			Tile[] winCombo = model.getWinCombo();
 			for(int i = 1; i < 10; i++)
 			{
 				tile[i].setBackground(null);
@@ -129,13 +124,7 @@ public class View extends JFrame implements ActionListener {
 			}
 			
 			
-			for(int i = 0; i < 3; i++)
-			{
-				tile[winCombo[i].getID()].setEnabled(true);
-			}
-			
-			if (model.checkEnd(win) == 1)
-			{
+			if (model.checkEnd(win) == 1)		{
 				if (botExists == 0)
 				{
 					if (model.getPlayerTurn() == bot.getBotTurn())
@@ -150,6 +139,15 @@ public class View extends JFrame implements ActionListener {
 				else
 				{
 					instructions.setText("Player " + model.getPlayerTurn() + " wins!");
+				}
+				
+				if(model.getPlayerTurn() == 2)
+				{
+					enableWinner(Color.YELLOW);
+				}
+				else
+				{
+					enableWinner(Color.BLUE);
 				}
 				
 			}
@@ -167,6 +165,15 @@ public class View extends JFrame implements ActionListener {
 			{
 				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
+		}
+	}
+	
+	private void enableWinner(Color c)
+	{
+		Tile[] winCombo = model.getWinCombo();
+		for(int i = 0; i < 3; i++)
+		{
+			tile[winCombo[i].getID()].setBackground(c);
 		}
 	}
 }

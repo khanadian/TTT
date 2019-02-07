@@ -16,10 +16,8 @@ public class StrategyImpossible extends Strategy implements StratInterface{
 		Tile[] best = bot.getBestCombo(player);
 		
 		if(bestCounter >= 2)
-		{
-			
 			return win(player);
-		}
+		
 		int counter = bestCounter; // temporary storage of best counter and combos for bot
 		Tile[] actBest = best;
 		// block opponent
@@ -29,44 +27,23 @@ public class StrategyImpossible extends Strategy implements StratInterface{
 		best = bot.getBestCombo(player^3);
 		bestCounter = bot.getBestCounter();
 		if (bestCounter >= 2) 
-		{
 			return block(player^3);
-		}
 		
 		
 		if(counter >= 1)
 		{
 			Tile highPriority = new Tile(0); // must have priority of -1
 			
+			
 			for(int i = 0; i < 3; i++)
-			{
-				if (actBest[i].getSymbText().equals(bot.getSymbol(player)) == false && highPriority.getPriority() < actBest[i].getPriority())
-				{
+				if (actBest[i].getSymbText().equals(bot.getSymbol(player)) == false 
+						&& highPriority.getPriority() < actBest[i].getPriority())
 					highPriority = actBest[i];
-				}
-			}
+			
 			return highPriority.getID();
 		}
 		
-		if(freeTiles.contains(Tile.CENTER))
-		{
-			return Tile.CENTER;
-		}
-		for (int i = 0; i < 4; i++)
-		{
-			if(freeTiles.contains(Tile.CORNERS[i]))
-			{
-				return Tile.CORNERS[i];
-			}
-		}
-		for (int i = 0; i < 4; i++)
-		{
-			if(freeTiles.contains(Tile.SIDES[i]))
-			{
-				return Tile.SIDES[i];
-			}
-		}
-		return 0;
+		return pickSmart();
 		
 	}
 	
