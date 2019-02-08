@@ -26,6 +26,11 @@ Why: for more choice against bots
 Name: Colors
 What to do: give each player a color
 Why: easier to destinguish tiles
+--------------------------------------------------------------------------
+Name: strategy design pattern
+What to do: employ the strategy design pattern
+Why: to add a layer of abstraction between what the bot must do and how it chooses to do it
+--------------------------------------------------------------------------
 ____________________________________________________________________________________________________________________
 USER STORIES
 --------------------------------------------------------------------------
@@ -45,11 +50,7 @@ FEATURES
 	Why: for users that want to improve at the game
 --------------------------------------------------------------------------
 CODE
-	--------------------------------------------------------------------------
-	Name: strategy design pattern
-	What to do: employ the strategy design pattern
-	Why: to add a layer of abstraction between what the bot must do and how it chooses to do it
-	--------------------------------------------------------------------------
+	
 	Name: Controller
 	What to do: separate view from controller
 	Why: for better structured code
