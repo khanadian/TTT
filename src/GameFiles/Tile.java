@@ -1,3 +1,4 @@
+package GameFiles;
 import java.util.stream.IntStream;
 
 // a tile in the game of tic tac toe. 9 tiles in a 3x3 fashion make one board

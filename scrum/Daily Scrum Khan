@@ -1,14 +1,6 @@
 SCRUM
 
 -------
-Day
--------
-what's done: 
-what to do:
-obstacles:
-
-
--------
 Day 1
 -------
 what's done: N/A
@@ -94,9 +86,134 @@ what to do: make progress on UI
 obstacles: remembering how to work with Java's graphics
 
 -------
-Day 14 - 1/21/2019
+Day 15 - 1/21/2019
 -------
 what's done: N/A
 what to do: make progress on UI
 obstacles: remembering how to work with Java's graphics
 
+-------
+Day 16 - 1/22/2019
+-------
+what's done: Made a simple UI
+what to do: implement MVC
+obstacles: remembering the framework of MVC
+
+-------
+Day 17 - 1/23/2019
+-------
+what's done: Made a model class
+what to do: connect the components of MVC
+obstacles: remembering how to do all of this
+
+-------
+Day 18 - 1/24/2019
+-------
+what's done: The buttons disable on click
+what to do: Make the game follow the rules set forward
+obstacles: debugging, potentially
+
+-------
+Day 19  - 1/25/2019
+-------
+what's done: The game works
+what to do: bug fixing
+obstacles: bug fixing
+
+-------
+Day 20 - 1/26/2019
+-------
+what's done: The game works
+what to do: Allow user to restart and add bot functionality
+obstacles: using the JOptionPane
+
+-------
+Day 21 - 1/27/2019
+-------
+what's done: added bot support to new UI
+what to do: color the buttons
+obstacles: finding out how to color buttons
+
+-------
+Day 22 - 1/28/2019
+-------
+what's done: Added colors to buttons
+what to do: get working on strategy class
+obstacles: remembering how the design pattern works
+
+-------
+Day 23 - 1/29/2019
+-------
+what's done: made strategy classes (and a bug)
+what to do: implement the strategy classes better (methods), leave bug for tomorrow
+obstacles: fixing the bug
+
+-------
+Day 25 - 1/31/2019
+-------
+what's done: no progress from the 29th
+what to do: N/A busy with assignments
+obstacles: school
+
+-------
+Day 26 - Feb 1st 2019
+-------
+what's done: NA
+what to do: NA
+obstacles: life
+
+-------
+Day 27 - Feb 3rd 2019
+-------
+what's done: NA
+what to do: I'll work tomorrow, i promise
+obstacles: keeping that promise
+
+-------
+Day 28 - Feb 4th, 2019
+-------
+what's done: Strategy design mostly complete
+what to do: fix strategy design
+obstacles: Fixing the bug
+
+-------
+Day 29 - Feb 5th 2019
+-------
+what's done: Fixed the strategy bug
+what to do: allow winning combo to be seen when game ends
+obstacles: none forseeable
+
+-------
+Day 30 - Feb 6th 2019
+-------
+what's done: Winning combination stays lit up
+what to do: clean up code
+obstacles: reading my own code haha
+
+-------
+Day 31 - Feb 7th 2019
+-------
+what's done: Cleaned up code
+what to do: Nothing today or tomorrow
+obstacles: the 301 assignment 
+
+-------
+Day 32 - Feb 9th 2019
+-------
+what's done: The game works
+what to do: Allow difficulty choice
+obstacles: the popup window
+
+-------
+Day 33 - Feb 11th 2019
+-------
+what's done: JDialog researched
+what to do: implement difficulty choice
+obstacles: the popup window
+____________________________________________________________________________
+-------
+Day 
+-------
+what's done: 
+what to do: 
+obstacles: 
