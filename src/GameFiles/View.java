@@ -90,11 +90,10 @@ public class View extends JFrame implements ActionListener {
 			String[] diffButtons = { "Easy", "Medium", "Hard", "Impossible"};    
 			int diff = JOptionPane.showOptionDialog(null, "Difficulty", "pick a difficulty",
 			        JOptionPane.DEFAULT_OPTION, 0, null, diffButtons, diffButtons[0]); //TODO remove error symbol
-			System.out.println(diff);
 			
 			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
 			if (diff > -1)
-				bot = new TTT_Bot(diff-1, playerTurn ^ 3, model); //TODO figure out why hard bot isnt hard
+				bot = new TTT_Bot(diff-1, playerTurn ^ 3, model);
 			else
 				bot = new TTT_Bot(-1, playerTurn ^ 3, model);
 			botMove();
