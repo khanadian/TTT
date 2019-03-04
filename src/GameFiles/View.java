@@ -67,6 +67,8 @@ public class View extends JFrame implements ActionListener {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
+		
+		
 		askBot();
 	}
 	
@@ -82,13 +84,19 @@ public class View extends JFrame implements ActionListener {
 	//asks if player wants a bot opponent
 	private void askBot()
 	{
-		botExists = JOptionPane.showConfirmDialog(null,"Would you like to face an unbeatable opponent?", "choose one", JOptionPane.YES_NO_OPTION);
+		botExists = JOptionPane.showConfirmDialog(null,"Would you like to face a computer opponent?", "choose one", JOptionPane.YES_NO_OPTION);
 		if (botExists == 0)
 		{
-			
+			String[] diffButtons = { "Easy", "Medium", "Hard", "Impossible"};    
+			int diff = JOptionPane.showOptionDialog(null, "Difficulty", "pick a difficulty",
+			        JOptionPane.DEFAULT_OPTION, 0, null, diffButtons, diffButtons[0]); //TODO remove error symbol
+			System.out.println(diff);
 			
 			playerTurn = JOptionPane.showConfirmDialog(null,"Would you like to go first?", "choose one", JOptionPane.YES_NO_OPTION) + 1;
-			bot = new TTT_Bot(TTT_Bot.IMPOSSIBLE, playerTurn ^ 3, model); //TODO allow user to choose difficulty
+			if (diff > -1)
+				bot = new TTT_Bot(diff-1, playerTurn ^ 3, model); //TODO figure out why hard bot isnt hard
+			else
+				bot = new TTT_Bot(-1, playerTurn ^ 3, model);
 			botMove();
 		}
 	}

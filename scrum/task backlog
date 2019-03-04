@@ -55,18 +55,6 @@ CODE
 	What to do: separate view from controller
 	Why: for better structured code
 	--------------------------------------------------------------------------
-	Name: 3x3 array
-	What to do: convert the program to make the grid 3x3 instead of taking a single number
-	Why: probably more intuitive
-	--------------------------------------------------------------------------
-	Name: JUnit
-	What to do: Add JUnit testing
-	Why: to avoid bugs
-	--------------------------------------------------------------------------
-	Name: globals 
-	What to do: create global constants like for what is occupying the tile
-	Why: to stop confusion and to stop use of arbitrary variables
-	--------------------------------------------------------------------------
 	Name: dynamic bot
 	What to do: bot uses dynamic programming
 	Why: so that the bot isnt hardcoded to the rules of this game

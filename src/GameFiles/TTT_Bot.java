@@ -24,26 +24,17 @@ class TTT_Bot {
 		this.player = player;
 		this.TTT_Model = m;
 		
-		if (diff == -1)
-		{
+		if (diff == EASY)
 			strat = new StrategyEasy(this);
-		}
-		else if(diff == 0)
-		{
+		else if(diff == MEDIUM)
 			strat = new StrategyMedium(this);
-		}
-		else if(diff == 1)
-		{
+		else if(diff == HARD)
 			strat = new Strategyhard(this);
-		}
-		else if(diff == 2)
-		{
+		else if(diff == IMPOSSIBLE)
 			strat = new StrategyImpossible(this);
-		}
 		else
-		{
 			strat = new Strategy(this);
-		}
+		
 		
 	}
 	

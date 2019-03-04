@@ -210,6 +210,12 @@ Day 33 - Feb 11th 2019
 what's done: JDialog researched
 what to do: implement difficulty choice
 obstacles: the popup window
+
+-------
+Day 34 - March 4th 2019
+-------
+Just added a JOptionPane that allows user to pick difficulty. problem is, it looks like an error message.
+
 ____________________________________________________________________________
 -------
 Day 
