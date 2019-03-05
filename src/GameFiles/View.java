@@ -45,7 +45,6 @@ public class View extends JFrame implements ActionListener {
 	private void setUI()
 	{
 		frame = new JFrame("Tic Tac Toe");
-		frame.setLayout(new BorderLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel jPan = new JPanel(new GridLayout(3,3));

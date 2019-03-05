@@ -12,7 +12,6 @@ public class Game
 	{
 		TTT_Model model = new TTT_Model();
 		View view = new View(model);
-		
 	}
 	
 }

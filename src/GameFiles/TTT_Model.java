@@ -182,4 +182,9 @@ public class TTT_Model
 		return playerTurn;
 	}
 	
+	public Tile[] getTileList()
+	{
+		return tileList;
+	}
+	
 }
