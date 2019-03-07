@@ -23,19 +23,8 @@ class TTT_Bot {
 	{
 		this.player = player;
 		this.TTT_Model = m;
-		
-		if (diff == EASY)
-			strat = new StrategyEasy(this);
-		else if(diff == MEDIUM)
-			strat = new StrategyMedium(this);
-		else if(diff == HARD)
-			strat = new Strategyhard(this);
-		else if(diff == IMPOSSIBLE)
-			strat = new StrategyImpossible(this);
-		else
-			strat = new Strategy(this);
-		
-		
+		StrategyFactory factory = new StrategyFactory();
+		strat = factory.getStrat(diff, this);
 	}
 	
 	TTT_Bot(int player, TTT_Model m)

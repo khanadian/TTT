@@ -1,10 +1,10 @@
 package GameFiles;
 
 
-public class Strategyhard extends Strategy implements StratInterface
+public class StrategyHard extends Strategy implements StratInterface
 {
 	
-	public Strategyhard(TTT_Bot bot) 
+	public StrategyHard(TTT_Bot bot) 
 	{
 		super(bot);
 	}
@@ -15,7 +15,6 @@ public class Strategyhard extends Strategy implements StratInterface
 		int bestCounter = bot.getBestCounter();
 		int player = bot.getBotTurn();
 		
-		System.out.println(bestCounter);
 		if(bestCounter >= 2)
 			return win(player);
 		
