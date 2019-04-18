@@ -10,7 +10,12 @@ public class StrategyDynamic  extends Strategy implements StratInterface{
 	
 	public int makeMove()
 	{
-		return 0;
+		GameState gs = new GameState(bot.getModel(), bot.getBotTurn());
+		int move = gs.getMove();
+		
+		if(move > 0)
+			return move;
+		return pickSmart();
 	}
 	
 	/*@Override

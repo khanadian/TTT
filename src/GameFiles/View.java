@@ -34,7 +34,7 @@ public class View extends JFrame implements ActionListener {
 		{
 			tile[i].setEnabled(true);
 			tile[i].setText(Integer.toString(i));
-			tile[i].setBackground(null);
+			tile[i].setBackground(Color.WHITE);
 		}
 		instructions.setText(model.getSymbol(1));
 		
@@ -52,6 +52,7 @@ public class View extends JFrame implements ActionListener {
 		for(int i = 1; i < 10; i++)
 		{
 			tile[i]= new JButton(Integer.toString(i));
+			tile[i].setBackground(Color.WHITE);
 			tile[i].addActionListener(this);
 			tile[i].setPreferredSize(new Dimension(100, 100));
 			jPan.add(tile[i]);

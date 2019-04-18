@@ -9,7 +9,7 @@ import java.util.ArrayList;
 class TTT_Bot {
 	private int player; //bot's turn
 	private int bestCounter;
-	private TTT_Model TTT_Model;
+	private TTT_Model model;
 	private Strategy strat; 
 	
 	
@@ -22,7 +22,7 @@ class TTT_Bot {
 	TTT_Bot(int diff, int player, TTT_Model m)
 	{
 		this.player = player;
-		this.TTT_Model = m;
+		this.model = m;
 		StrategyFactory factory = new StrategyFactory();
 		strat = factory.getStrat(diff, this);
 	}
@@ -39,8 +39,6 @@ class TTT_Bot {
 		return strat.makeMove();
 	}
 
-	
-	
 	
 // find the best combo
 	private Tile[] bestCombo(ArrayList<Tile[]> winningCombos, String symbol)
@@ -75,7 +73,7 @@ class TTT_Bot {
 	// next couple blocks are for strategy design pattern
 	public Tile[] getBestCombo(int p)
 	{
-		return bestCombo(TTT_Model.getWinningCombos(p), getSymbol(p));
+		return bestCombo(model.getWinningCombos(p), getSymbol(p));
 	}
 	
 	public int getBestCounter()
@@ -89,13 +87,18 @@ class TTT_Bot {
 		return player;
 	}
 	
+	public TTT_Model getModel()
+	{
+		return model;
+	}
+	
 	public String getSymbol(int p)
 	{
-		return TTT_Model.getSymbol(p);
+		return model.getSymbol(p);
 	}
 	
 	public ArrayList<Integer> getFrTiles()
 	{
-		return TTT_Model.getFreeTiles();
+		return model.getFreeTiles();
 	}
 }

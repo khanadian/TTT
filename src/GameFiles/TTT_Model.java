@@ -12,19 +12,28 @@ public class TTT_Model
 
 	private String playerOneSymbol = "X";
 	private String playerTwoSymbol = "O";
-	String[] playerSymbol;
+	String[] playerSymbol = new String[] {"ERROR", playerOneSymbol, playerTwoSymbol};
 	
 	private Tile[] winningCombo = new Tile[3]; // the combination that actually wins
+	
+	public TTT_Model(TTT_Model another)
+	{
+		tileList = another.getTileList();
+		freeTiles = another.getFreeTiles();
+		winningCombos1 = another.getWinningCombos(1);
+		winningCombos2 = another.getWinningCombos(2);
+		playerTurn = another.getPlayerTurn();
+	}
 	
 	
 	public TTT_Model()
 	{
 		//setting up
-		playerSymbol = new String[] {"ERROR", playerOneSymbol, playerTwoSymbol};
 		
 		for(int i = 1; i < 10; i++)
 			tileList[i] = new Tile(i);
 			
+		
 		winningCombos1 = setupList();
 		winningCombos2 = setupList();
 		playerTurn = 1;
@@ -44,24 +53,15 @@ public class TTT_Model
 		
 		
 		if(playerTurn == 1)
-		{
 			removeVoidCombos(winningCombos2, playerOneSymbol);
-			}
 		else
-		{
 			removeVoidCombos(winningCombos1, playerTwoSymbol);
-		}
 		
 		
 		
 		if(playerTurn == 1)
-		{
 			return winningCombos1;
-		}
-		else
-		{
-			return winningCombos2;
-		}
+		return winningCombos2;
 	}
 	
 	// alternates whose turn it is
@@ -95,9 +95,9 @@ public class TTT_Model
 		{
 			if(comma)
 					nums = nums + ", ";
-				
+			else
+				comma = true;
 			nums = nums + tile.toString();
-			comma = true;
 		}
 		return nums;
 	}

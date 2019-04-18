@@ -10,7 +10,7 @@ public class StrategyFactory {
 		else if(diff == 1)
 			return new StrategyHard(bot);
 		else
-			return new StrategyImpossible(bot);
+			return new StrategyDynamic(bot);//Impossible(bot);
 		
 	}
 	
